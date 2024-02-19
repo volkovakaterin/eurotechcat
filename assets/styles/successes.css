@@ -1,0 +1,240 @@
+.successes-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 9.5%;
+  padding: 150px 120px;
+}
+
+.successes-description-container,
+.successes-cards-container {
+  width: 45%;
+}
+
+.successes-description-title {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 78px;
+  color: var(--color-blue-main);
+  text-transform: uppercase;
+}
+
+.successes-description-list {
+  margin-top: 40px;
+  width: 68%;
+}
+
+.successes-description-item {
+  position: relative;
+  padding-left: 23px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--color-grey-5);
+}
+
+.successes-description-item::before {
+  position: relative;
+  top: 16px;
+  left: -23px;
+  display: block;
+  width: 8px;
+  height: 8px;
+  content: "";
+  background: var(--color-blue-main);
+  border-radius: 2px;
+}
+
+.successes-description-item:not(:first-child) {
+  margin-top: 10px;
+}
+
+.successes-card-wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.successes-card {
+  position: relative;
+  width: 54.5%;
+  padding: 65px 39px;
+  background: var(--color-white);
+  box-shadow: 0px 10px 40px 0px #c7c7c733;
+  border-radius: 4px;
+}
+
+.successes-card-wrapper:not(:first-child) {
+  margin-top: -20px;
+}
+
+.successes-card-wrapper:nth-child(1) {
+  z-index: 3;
+}
+
+.successes-card-wrapper:nth-child(2) {
+  z-index: 2;
+}
+
+.successes-card-wrapper:nth-child(3) {
+  z-index: 1;
+}
+
+.successes-card-wrapper:nth-child(even) {
+  right: 70px;
+  justify-content: flex-end;
+}
+
+.successes-card::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 65px;
+  height: 5px;
+  content: "";
+  background: var(--color-blue-3);
+  border-radius: 2px;
+  box-shadow: 0px 10px 40px 0px #a08ed733;
+}
+
+.successes-card-wrapper:nth-child(even) .successes-card::before {
+  background: var(--color-blue-main);
+}
+
+.successes-card-middle {
+  position: relative;
+}
+
+.successes-card-middle::before {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  display: block;
+  width: 130px;
+  height: 130px;
+  content: "";
+  background: url("../svg/decor.svg");
+}
+
+.successes-card p {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  color: var(--color-blue-main);
+  text-align: center;
+}
+
+@media (max-width: 1440px) {
+  .successes-container {
+    gap: 4%;
+    margin: 0 0 80px 0;
+    padding: 100px 80px;
+  }
+
+  .successes-cards-container {
+    width: 49%;
+  }
+
+  .successes-description-title {
+    font-size: 48px;
+    line-height: 59px;
+  }
+
+  .successes-description-list {
+    margin-top: 30px;
+    width: 80%;
+  }
+
+  .successes-description-item {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .successes-card {
+    padding: 52px 35px;
+  }
+
+  .successes-card-wrapper:nth-child(even) {
+    right: 35px;
+  }
+
+  .successes-card-middle::before {
+    bottom: -35px;
+    right: -35px;
+  }
+}
+
+@media (max-width: 1029px) {
+  .successes-container {
+    flex-direction: column;
+    gap: 40px;
+    margin: 0;
+    padding: 60px 20px;
+  }
+
+  .successes-description-container,
+  .successes-cards-container {
+    width: 100%;
+  }
+
+  .successes-description-list {
+    width: 100%;
+  }
+
+  .successes-description-title {
+    font-size: 40px;
+    line-height: 49px;
+  }
+
+  .successes-card {
+    width: 51%;
+  }
+
+  .successes-card-wrapper:not(:first-child) {
+    margin-top: -50px;
+  }
+
+  .successes-card p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 390px) {
+  .successes-container {
+    gap: 30px;
+  }
+
+  .successes-description-title {
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  .successes-description-item {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .successes-card {
+    width: 100%;
+  }
+
+  .successes-card-wrapper:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  .successes-card-wrapper:nth-child(even) {
+    right: auto;
+  }
+
+  .successes-card-middle::before {
+    display: none;
+  }
+
+  .successes-card p {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}

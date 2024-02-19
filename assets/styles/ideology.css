@@ -1,0 +1,306 @@
+.ideology-container {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 9.5%;
+  margin: 200px 0 100px 0;
+  padding: 0 120px;
+}
+
+.ideology-description {
+  width: 45%;
+}
+
+.ideology-cards-container {
+  width: 45%;
+  padding: 0 40px;
+}
+
+.ideology-description-title {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 78px;
+  color: var(--color-blue-main);
+}
+
+.ideology-description-text {
+  margin-top: 41px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--color-black);
+}
+
+.ideology-container .ideology-description-btn_details.button {
+  width: 15rem;
+  margin-top: 60px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.ideology-card {
+  width: 66.6%;
+  padding: 60px 29px;
+  background: #ffffff;
+  box-shadow: 0px 10px 40px 0px #c7c7c733;
+  border-radius: 4px;
+}
+
+.ideology-card {
+  position: relative;
+}
+
+.ideology-card.ideology-card-ecology {
+  z-index: 3;
+}
+
+.ideology-card.ideology-card-social {
+  z-index: 2;
+}
+
+.ideology-card.ideology-card-corporate {
+  z-index: 1;
+}
+
+.ideology-card:not(:first-child) {
+  margin-top: -10px;
+}
+
+.ideology-card:nth-child(odd) {
+  float: right;
+}
+
+.ideology-card:nth-child(even) {
+  float: left;
+}
+
+.ideology-card-title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 39px;
+  color: var(--color-black);
+  text-transform: uppercase;
+}
+
+.ideology-card-text {
+  display: flex;
+  gap: 12px;
+  margin-top: 27px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--color-blue-1);
+}
+
+.ideology-card-text::before {
+  display: block;
+  width: 7px;
+  height: auto;
+  content: "";
+  background: var(--color-blue-1);
+  border-radius: 2px;
+}
+
+.ideology-card-picture {
+  position: absolute;
+  top: -48px;
+  display: block;
+  width: 72px;
+  height: 72px;
+  content: "";
+}
+
+.ideology-card-ecology .ideology-card-picture {
+  background: url("../svg/pure-natural.svg");
+}
+
+.ideology-card-social .ideology-card-picture {
+  background: url("../svg/peoples-two.svg");
+}
+
+.ideology-card-corporate .ideology-card-picture {
+  background: url("../svg/worker.svg");
+}
+
+.ideology-card-ecology .ideology-card-picture,
+.ideology-card-social .ideology-card-picture,
+.ideology-card-corporate .ideology-card-picture {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.ideology-card:nth-child(odd) .ideology-card-picture {
+  right: 0;
+}
+
+.ideology-card:nth-child(even) .ideology-card-picture {
+  left: -44px;
+}
+
+.ideology-card-picture::before {
+  position: absolute;
+  z-index: -1;
+  top: 21px;
+  left: 21px;
+  display: block;
+  width: 77px;
+  height: 77px;
+  content: "";
+  background: var(--color-blue-light);
+  border-radius: 2.5px;
+}
+
+@media (max-width: 1440px) {
+  .ideology-container {
+    gap: 4%;
+    margin: 160px 0 80px 0;
+    padding: 0 80px;
+  }
+
+  .ideology-cards-container {
+    width: 49%;
+    padding: 0 20px;
+  }
+
+  .ideology-description-title {
+    font-size: 48px;
+    line-height: 59px;
+  }
+
+  .ideology-description-text {
+    margin-top: 31px;
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .ideology-container .ideology-description-btn_details {
+    margin-top: 50px;
+  }
+
+  .ideology-card-title {
+    font-size: 23px;
+    line-height: 28px;
+  }
+
+  .ideology-card-text {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .ideology-card-picture {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ideology-card-picture::before {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 1029px) {
+  .ideology-container {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .ideology-description {
+    width: 70%;
+  }
+
+  .ideology-description-title {
+    font-size: 40px;
+    line-height: 49px;
+  }
+
+  .ideology-container .ideology-description-btn_details {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .ideology-cards-container {
+    width: 100%;
+    margin-top: 50px;
+    padding: 0 10px;
+  }
+
+  .ideology-card {
+    width: 59%;
+  }
+
+  .ideology-card:not(:first-child) {
+    margin-top: -50px;
+  }
+
+  .ideology-card-title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .ideology-card-picture {
+    top: -35px;
+  }
+
+  .ideology-card-picture::before {
+    left: 5px;
+  }
+
+  .ideology-card:nth-child(even) .ideology-card-picture {
+    left: -15px;
+  }
+}
+
+@media (max-width: 460px) {
+  .ideology-description {
+    width: 100%;
+  }
+
+  .ideology-description-title {
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  .ideology-description-text {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .ideology-cards-container {
+    margin-top: 100px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ideology-card:nth-child(odd),
+  .ideology-card:nth-child(even) {
+    float: none;
+  }
+
+  .ideology-card {
+    width: 100%;
+  }
+
+  .ideology-card:not(:first-child) {
+    margin-top: 50px;
+  }
+
+  .ideology-card:nth-child(odd) .ideology-card-picture,
+  .ideology-card:nth-child(even) .ideology-card-picture {
+    left: 23px;
+    right: auto;
+  }
+
+  .ideology-card-picture {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ideology-card-picture::before {
+    top: 10px;
+    left: 10px;
+  }
+}
