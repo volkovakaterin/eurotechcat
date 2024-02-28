@@ -1,7 +1,6 @@
 .results-container {
   position: relative;
   margin: 150px 0 100px 0;
-  padding: 0 120px;
 }
 
 .results-text {
@@ -71,7 +70,6 @@
 @media (max-width: 1440px) {
   .results-container {
     margin: 130px 0 81px 0;
-    padding: 0 80px;
   }
 
   .results-text {
@@ -104,7 +102,6 @@
 @media (max-width: 1029px) {
   .results-container {
     margin: 120px 0 60px 0;
-    padding: 0 20px;
   }
 
   .results-text {

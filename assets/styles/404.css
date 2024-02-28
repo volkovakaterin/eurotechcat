@@ -1,0 +1,151 @@
+.error__section {
+  position: relative;
+}
+
+.error-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 170px;
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  width: 44%;
+  margin-top: 250px;
+}
+
+.error-content-title {
+  font-weight: 600;
+  font-size: 47px;
+  line-height: 57px;
+  text-transform: uppercase;
+  color: var(--color-blue-main);
+}
+
+.error-content-text {
+  width: 90%;
+  margin-top: 60px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--color-grey-4);
+}
+
+.error-content a {
+  display: block;
+}
+
+.error-btn-home {
+  margin-top: 60px;
+}
+
+.error-number {
+  margin-top: 30px;
+  padding: 18.3% 12.4%;
+  background: var(--color-white);
+}
+
+.error-number span {
+  font-weight: 600;
+  font-size: min(max(15.1vw, 220px), 290px);
+  line-height: 356px;
+  color: var(--color-blue-main);
+}
+
+@media (max-width: 1440px) {
+  .error-container {
+    margin-bottom: 130px;
+  }
+
+  .error-content {
+    margin-top: 200px;
+  }
+
+  .error-content-title {
+    font-size: 33px;
+    line-height: 40px;
+  }
+
+  .error-content-text {
+    margin-top: 40px;
+  }
+
+  .error-btn-home {
+    margin-top: 50px;
+  }
+
+  .error-number {
+    margin-top: 50px;
+    padding: 17.4% 11.1%;
+  }
+
+  .error-number span {
+    line-height: 270px;
+  }
+}
+
+@media (max-width: 1029px) {
+  .error__section .introduction__substrate {
+    display: none;
+  }
+
+  .error-container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    flex-direction: column-reverse;
+  }
+
+  .error-number {
+    margin-top: 30px;
+    padding: 0;
+    text-align: center;
+    background: transparent;
+  }
+
+  .error-content {
+    align-items: center;
+    margin-top: 100px;
+    width: 100%;
+  }
+
+  .error-content-title {
+    font-size: 26px;
+    line-height: 31px;
+  }
+
+  .error-content-text {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .error-container {
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+
+  .error-number span {
+    font-size: 38.5vw;
+    line-height: 184px;
+  }
+
+  .error-content {
+    margin-top: 50px;
+  }
+
+  .error-content-title {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .error-content-text {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

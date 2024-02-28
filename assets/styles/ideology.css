@@ -5,7 +5,6 @@
   justify-content: center;
   gap: 9.5%;
   margin: 200px 0 100px 0;
-  padding: 0 120px;
 }
 
 .ideology-description {
@@ -109,34 +108,18 @@
   display: block;
   width: 72px;
   height: 72px;
-  content: "";
 }
 
-.ideology-card-ecology .ideology-card-picture {
-  background: url("../svg/pure-natural.svg");
-}
-
-.ideology-card-social .ideology-card-picture {
-  background: url("../svg/peoples-two.svg");
-}
-
-.ideology-card-corporate .ideology-card-picture {
-  background: url("../svg/worker.svg");
-}
-
-.ideology-card-ecology .ideology-card-picture,
-.ideology-card-social .ideology-card-picture,
-.ideology-card-corporate .ideology-card-picture {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+.ideology-card-picture svg {
+  width: 100%;
+  height: 100%;
 }
 
 .ideology-card:nth-child(odd) .ideology-card-picture {
   right: 0;
 }
 
-.ideology-card:nth-child(even) .ideology-card-picture {
+.ideology-card:nth-child(even) .ideology-card-picture svg {
   left: -44px;
 }
 
@@ -157,7 +140,6 @@
   .ideology-container {
     gap: 4%;
     margin: 160px 0 80px 0;
-    padding: 0 80px;
   }
 
   .ideology-cards-container {
@@ -205,7 +187,6 @@
 @media (max-width: 1029px) {
   .ideology-container {
     flex-direction: column;
-    padding: 0 20px;
   }
 
   .ideology-description {

@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   margin: 200px 0 0 0;
-  padding: 150px 120px;
+  padding: 150px 0;
 }
 
 .mission-picture {
@@ -21,7 +21,7 @@
 
 .mission-content-container {
   position: absolute;
-  right: 120px;
+  right: 0;
   width: 40.6%;
   height: fit-content;
   padding: 100px 80px;
@@ -74,7 +74,7 @@
 
 @media (max-width: 1440px) {
   .mission-container {
-    padding: 100px 80px;
+    padding: 100px 0;
   }
 
   .mission-picture {
@@ -83,7 +83,6 @@
   }
 
   .mission-content-container {
-    right: 80px;
     padding-left: 60px;
     padding-right: 60px;
   }
@@ -103,6 +102,10 @@
 }
 
 @media (max-width: 1029px) {
+  .mission-section {
+    padding: 0;
+  }
+
   .mission-container {
     flex-direction: column;
     margin: 60px 0;

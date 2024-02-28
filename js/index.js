@@ -1,0 +1,420 @@
+//переменные
+const currentLink = location.pathname;
+const btnBurger = document.querySelector(".header-burger");
+const headerMenu = document.querySelector(".header-menu");
+const bodyEl = document.querySelector("body");
+const maskEl = document.querySelector(".mask");
+const closeBurger = document.querySelector(".header-close_burger");
+const headerWrapEl = document.querySelector(".header-wrapper-inner");
+const menuProducts = document.querySelectorAll(".menu-products");
+const headerSubsEl = document.querySelector(".introduction__substrate");
+const submenuLink = document.querySelector(".menu-products-link");
+let selectedLink;
+const inputSearch = document.querySelectorAll(".search__field");
+const fieldSearch = document.querySelector(".search__wrapper");
+const cleanInputSearch = document.querySelectorAll(".search__close");
+const form = document.querySelector(".feedback-form");
+const btnUp = document.querySelector(".footer-content-btn-up");
+const submenuProducts = document.querySelector(".menu-products-list_container");
+const feedbackFormSubmit = document.querySelector(".feedback-form-submit");
+const arrowSelect = document.querySelectorAll(".select__arrow");
+const selectBody = document.querySelectorAll(".select__body");
+const optionSelect = document.querySelectorAll(".option__item");
+const selectCustom = document.querySelectorAll(".select__custom");
+const navbarPopup = document.querySelector(".menu__popup");
+
+//выделение активного пункта меню
+function addActiveMenu() {
+  document.querySelectorAll(".header-menu_link").forEach((item) => {
+    const linkHref = item.getAttribute("href");
+    if (currentLink === linkHref) {
+      item.classList.add("active");
+    }
+  });
+}
+
+//закрытие бургера
+function closeBurgerMenu() {
+  navbarPopup.querySelector(".search__field").value = "";
+  navbarPopup.querySelector(".search__wrapper").classList.remove("filled");
+  maskEl.classList.remove("active");
+  navbarPopup.classList.remove("visible");
+  bodyEl.classList.remove("hidden");
+}
+
+//управление бургер меню
+function controlBurger() {
+  btnBurger.addEventListener("click", (e) => {
+    maskEl.classList.add("active");
+    navbarPopup.classList.add("visible");
+    bodyEl.classList.add("hidden");
+  });
+  closeBurger.addEventListener("click", (e) => {
+    closeBurgerMenu();
+  });
+}
+
+//управление сабменю
+function controlProductsMenu(productsLink) {
+  productsLink.addEventListener("click", (e) => {
+    console.log("rere");
+    const withinBoundaries = e.composedPath().includes(submenuProducts);
+    if (
+      e.target !== productsLink.querySelector(".header-menu_link") &&
+      !withinBoundaries
+    ) {
+      if (window.innerWidth > 1029) {
+        console.log(e.target);
+        navbarPopup.classList.toggle("visible");
+        maskEl.classList.toggle("active");
+        bodyEl.classList.toggle("hidden");
+      } else {
+        submenuProducts.classList.toggle("visible");
+        navbarPopup
+          .querySelector(".menu-products")
+          .classList.toggle("expanded");
+      }
+    } else return;
+  });
+}
+
+//закрытие бургера и сабменю при нажатии на оверлэй
+function clickOverlay() {
+  maskEl.addEventListener("click", (e) => {
+    closeBurgerMenu();
+    navbarPopup.classList.remove("visible");
+    maskEl.classList.remove("active");
+    bodyEl.classList.remove("hidden");
+    submenuProducts.classList.remove("visible");
+    navbarPopup.querySelector(".menu-products").classList.remove("expanded");
+  });
+}
+
+//выделение активного пункта сабменю
+function addActiveSubmenu() {
+  submenuProducts.onclick = function (e) {
+    const target = e.target;
+    if (target.tagName == "A") {
+      if (selectedLink) {
+        selectedLink.classList.remove("active");
+      }
+      if (target !== selectedLink) {
+        target.classList.add("active");
+        selectedLink = target;
+      } else if (target == selectedLink) {
+        selectedLink = false;
+      }
+    }
+  };
+}
+
+//проверка поля поиска на наличие введенных данных
+function checkSearchField(field) {
+  field.addEventListener("input", (e) => {
+    if (
+      field.value.length > 0 &&
+      !field.closest(".search__wrapper").classList.contains("filled")
+    ) {
+      field.closest(".search__wrapper").classList.add("filled");
+    } else if (field.value.length == 0) {
+      field.closest(".search__wrapper").classList.remove("filled");
+    }
+  });
+}
+
+//очистить поле поиска
+function cleanSearch(btn) {
+  btn.addEventListener("click", (e) => {
+    btn.closest(".search__wrapper").querySelector(".search__field").value = "";
+    btn.closest(".search__wrapper").classList.remove("filled");
+  });
+}
+
+//наверх
+function liftUp() {
+  btnUp.addEventListener("click", (e) => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
+}
+
+//валидация
+function validationField() {
+  feedbackFormSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    const requiredInputs = document.querySelectorAll("input[required]");
+    let isError = false;
+
+    requiredInputs.forEach((input) => {
+      const value = input.value.trim();
+      if (input.classList.contains("feedback-form-email") && value.length > 0) {
+        if (value.length < 6 || !value.includes("@") || !value.includes(".")) {
+          isError = true;
+          input.classList.add("invalid-input");
+          input.parentElement.classList.add("invalid-field");
+        } else {
+          input.classList.remove("invalid-input");
+          input.parentElement.classList.remove("invalid-field");
+        }
+      } else if (!value) {
+        isError = true;
+        input.classList.add("required-input");
+        input.parentElement.classList.add("required-field");
+      } else {
+        input.classList.remove("required-input");
+        input.parentElement.classList.remove("required-field");
+      }
+    });
+    if (!isError) {
+      form.submit();
+      form.reset();
+    }
+  });
+}
+
+//управление  select
+function manageSelect(item) {
+  item.addEventListener("click", (e) => {
+    item.closest(".select__custom").classList.toggle("expanded");
+  });
+}
+
+//выбор select
+function chooseSelect(option) {
+  const selectParent = option.closest(".select__custom");
+  const options = selectParent.querySelectorAll(".option__item");
+  const currentSelect = selectParent.querySelector(".select__current");
+  option.addEventListener("click", (e) => {
+    options.forEach((item) => {
+      item.classList.remove("option__choose");
+    });
+    option.classList.add("option__choose");
+    currentSelect.innerText = option.innerText;
+    currentSelect.classList.add("current__choose");
+    selectParent.classList.remove("expanded");
+  });
+}
+
+//закрытие select по клику вне элемента
+function closeSelect() {
+  document.addEventListener("click", (e) => {
+    console.log(e.target);
+    selectCustom.forEach((item) => {
+      const withinBoundaries = e.composedPath().includes(item);
+      if (!withinBoundaries) {
+        item.classList.remove("expanded");
+      }
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  clickOverlay();
+  addActiveMenu();
+  controlBurger();
+
+  console.log(menuProducts);
+
+  menuProducts.forEach((item) => {
+    controlProductsMenu(item);
+  });
+
+  if (submenuProducts) {
+    addActiveSubmenu();
+  }
+  inputSearch.forEach((item) => {
+    checkSearchField(item);
+  });
+  cleanInputSearch.forEach((item) => {
+    cleanSearch(item);
+  });
+  liftUp();
+  if (feedbackFormSubmit) {
+    validationField();
+  }
+  if (arrowSelect) {
+    arrowSelect.forEach((item) => {
+      manageSelect(item);
+    });
+  }
+  closeSelect();
+  if (optionSelect) {
+    optionSelect.forEach((option) => {
+      chooseSelect(option);
+    });
+  }
+});
+
+if (document.querySelector(".swiper-introduction")) {
+  const swiperIntroduction = new Swiper(".swiper-introduction", {
+    direction: "horizontal",
+    loop: true,
+    speed: 900,
+
+    pagination: {
+      el: ".swiper-pagination-introduction",
+    },
+  });
+}
+
+if (document.querySelector(".swiper-news")) {
+  const swiperNews = new Swiper(".swiper-news", {
+    direction: "horizontal",
+    loop: true,
+    slidesPerView: 1.5,
+    slidesPerGroup: 2,
+    spaceBetween: 20,
+    speed: 900,
+
+    breakpoints: {
+      391: {
+        slidesPerView: 1.77,
+        slidesPerGroup: 2,
+      },
+
+      1030: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+      },
+
+      1441: {
+        slidesPerView: 4,
+      },
+    },
+
+    navigation: {
+      nextEl: ".swiper-news-button-next",
+      prevEl: ".swiper-news-button-prev",
+    },
+
+    pagination: {
+      el: ".swiper-pagination-news",
+    },
+  });
+}
+
+if (document.querySelector(".swiper-news_page")) {
+  const swiperNewsPage = new Swiper(".swiper-news_page", {
+    direction: "horizontal",
+    loop: true,
+    speed: 900,
+
+    pagination: {
+      el: ".swiper-pagination-news_page",
+    },
+  });
+}
+
+if (document.querySelector(".swiper__introduction_company")) {
+  const swiperIntroductionCompany = new Swiper(
+    ".swiper__introduction_company",
+    {
+      direction: "horizontal",
+      loop: true,
+      speed: 900,
+
+      pagination: {
+        el: ".pagination__introduction_company",
+      },
+    }
+  );
+}
+
+if (document.querySelector(".swiper__one_news")) {
+  const swiperOneNews = new Swiper(".swiper__one_news", {
+    direction: "horizontal",
+    loop: true,
+    speed: 900,
+
+    pagination: {
+      el: ".pagination__one_news",
+    },
+  });
+}
+
+if (document.querySelector(".swiper__introduction_products")) {
+  const swiperProducts = new Swiper(".swiper__introduction_products", {
+    direction: "horizontal",
+    loop: true,
+    speed: 900,
+
+    pagination: {
+      el: ".pagination__introduction_products",
+    },
+  });
+}
+
+if (document.querySelector(".swiper__oil_additive")) {
+  const swiperOilAdditive = new Swiper(".swiper__oil_additive", {
+    direction: "horizontal",
+    loop: true,
+    speed: 900,
+    spaceBetween: 20,
+
+    breakpoints: {
+      1030: {
+        slidesPerView: 1.35,
+        slidesPerGroup: 2,
+      },
+      1441: {
+        slidesPerView: 1.85,
+        slidesPerGroup: 2,
+      },
+    },
+
+    pagination: {
+      el: ".pagination__oil_additive",
+    },
+  });
+}
+
+if (document.querySelector(".swiper__other_products")) {
+  const swiperswiperOtherProducts = new Swiper(".swiper__other_products", {
+    direction: "horizontal",
+    loop: true,
+    speed: 900,
+    spaceBetween: 20,
+
+    breakpoints: {
+      1030: {
+        slidesPerView: 1.35,
+        slidesPerGroup: 2,
+      },
+      1441: {
+        slidesPerView: 1.85,
+        slidesPerGroup: 2,
+      },
+    },
+
+    pagination: {
+      el: ".pagination__other_products",
+    },
+  });
+}
+
+if (document.querySelector(".swiper__catalysts")) {
+  const swiperCatalysts = new Swiper(".swiper__catalysts", {
+    direction: "horizontal",
+    loop: true,
+    speed: 900,
+    spaceBetween: 20,
+
+    breakpoints: {
+      1030: {
+        slidesPerView: 1.35,
+        slidesPerGroup: 2,
+      },
+      1441: {
+        slidesPerView: 1.85,
+        slidesPerGroup: 2,
+      },
+    },
+
+    pagination: {
+      el: ".pagination__catalysts",
+    },
+  });
+}

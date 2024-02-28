@@ -3,7 +3,7 @@
   flex-direction: row-reverse;
   justify-content: center;
   gap: 9.5%;
-  padding: 150px 120px;
+  padding: 150px 0;
 }
 
 .successes-description-container,
@@ -107,15 +107,14 @@
   position: relative;
 }
 
-.successes-card-middle::before {
+.successes-card-middle span {
   position: absolute;
+  z-index: -1;
   bottom: -60px;
   right: -60px;
   display: block;
   width: 130px;
   height: 130px;
-  content: "";
-  background: url("../svg/decor.svg");
 }
 
 .successes-card p {
@@ -129,8 +128,8 @@
 @media (max-width: 1440px) {
   .successes-container {
     gap: 4%;
-    margin: 0 0 80px 0;
-    padding: 100px 80px;
+    margin: 0;
+    padding: 100px 0;
   }
 
   .successes-cards-container {
@@ -160,7 +159,7 @@
     right: 35px;
   }
 
-  .successes-card-middle::before {
+  .successes-card-middle span {
     bottom: -35px;
     right: -35px;
   }
@@ -170,8 +169,7 @@
   .successes-container {
     flex-direction: column;
     gap: 40px;
-    margin: 0;
-    padding: 60px 20px;
+    padding: 60px 0;
   }
 
   .successes-description-container,
@@ -229,7 +227,7 @@
     right: auto;
   }
 
-  .successes-card-middle::before {
+  .successes-card-middle span {
     display: none;
   }
 

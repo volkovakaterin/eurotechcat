@@ -1,8 +1,76 @@
+.introduction__section {
+  position: relative;
+}
+
+.introduction__substrate {
+  position: absolute;
+  z-index: -1;
+  background-color: var(--color-blue-main);
+  top: -80px;
+  right: 0;
+  width: 48%;
+  aspect-ratio: 0.9;
+  height: auto;
+  max-height: 1023px;
+}
+
+.introduction__substrate::after {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: 76.3%;
+  height: 700px;
+  content: "";
+  background: url(../images/section_blue.png);
+  background-position-y: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.introduction__substrate.visible {
+  z-index: 2;
+  width: 900px;
+}
+
+.introduction__substrate_balls::after {
+  display: none;
+}
+
+.introduction__substrate_balls span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  height: auto;
+  bottom: 0;
+  background: url(../images/Ellipse_s.png);
+  background-size: 85%;
+  background-position-x: -200px;
+  background-position-y: 200px;
+  background-repeat: no-repeat;
+}
+
+.introduction__substrate_balls span::before {
+  position: absolute;
+  display: block;
+  width: 66%;
+  aspect-ratio: 1;
+  height: auto;
+  top: 20px;
+  right: 0;
+  background: url(../images/Ellipse_s.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: "";
+  background-position-x: 170px;
+}
+
 .introduction-container {
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 0 120px;
 }
 
 .introduction-container .swiper-pagination-introduction {
@@ -41,7 +109,7 @@
   justify-content: center;
 }
 
-.introduction-content-title {
+.home__page .introduction-content-title {
   font-weight: 600;
   font-size: min(max(5.25vw, 80px), 100px);
   line-height: min(max(7vw, 98px), 123px);
@@ -49,7 +117,7 @@
   color: var(--color-blue-main);
 }
 
-.introduction-content-text {
+.home__page .introduction-content-text {
   font-weight: 600;
   font-size: min(max(2.45vw, 33px), 47px);
   line-height: min(max(3vw, 40px), 57px);
@@ -68,16 +136,30 @@
 }
 
 @media (max-width: 1440px) {
-  .introduction-container {
-    padding: 0 80px;
+  .introduction__substrate {
+    aspect-ratio: 0.87;
+    height: auto;
   }
 
-  .introduction-content-title {
+  .introduction__substrate::after {
+    width: 76.3%;
+    height: 496px;
+  }
+
+  .introduction__substrate.visible {
+    width: 680px;
+  }
+
+  .introduction__substrate.visible.header-error-substrate span {
+    display: none;
+  }
+
+  .home__page .introduction-content-title {
     font-size: min(max(5.5vw, 60px), 80px);
     line-height: min(max(7vw, 73px), 98px);
   }
 
-  .introduction-content-text {
+  .home__page .introduction-content-text {
     font-size: min(max(2.3vw, 26px), 33px);
     line-height: min(max(2.8vw, 31px), 40px);
   }
@@ -91,9 +173,51 @@
   }
 }
 
+@media (min-width: 1030px) {
+  .introduction__substrate {
+    border-radius: 4px;
+  }
+}
+
 @media (max-width: 1029px) {
-  .introduction-container {
-    padding: 0 20px;
+  .introduction__substrate {
+    top: 160px;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 2.02;
+  }
+
+  .introduction__substrate::after {
+    height: 100%;
+    width: 60%;
+  }
+
+  .introduction__substrate_balls span {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 38.5%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .introduction__substrate_balls span::before {
+    display: none;
+  }
+
+  .introduction__substrate_balls::before {
+    position: absolute;
+    display: block;
+    width: 197px;
+    height: 143px;
+    top: 0;
+    right: 0;
+    background: url(../images/Ellipse_s.png);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    content: "";
+    background-position-x: left;
+    background-position-y: bottom;
   }
 
   .introduction-container {
@@ -101,12 +225,12 @@
     flex-direction: column;
   }
 
-  .introduction-content-title {
+  .home__page .introduction-content-title {
     font-size: min(max(7.8vw, 48px), 60px);
     line-height: min(max(9.5vw, 59px), 73px);
   }
 
-  .introduction-content-text {
+  .home__page .introduction-content-text {
     font-size: min(max(3.4vw, 24px), 26px);
     line-height: min(max(4vw, 29px), 31px);
   }
@@ -149,11 +273,15 @@
 }
 
 @media (max-width: 390px) {
+  .introduction__substrate {
+    display: none;
+  }
+
   .introduction-container {
     margin-top: 40px;
   }
 
-  .introduction-content-text {
+  .home__page .introduction-content-text {
     font-size: 5.9vw;
     line-height: 7vw;
   }
@@ -168,7 +296,7 @@
 }
 
 @media (max-width: 340px) {
-  .introduction-content-title {
+  .home__page .introduction-content-title {
     font-size: 13vw;
   }
 }
