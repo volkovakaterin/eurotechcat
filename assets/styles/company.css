@@ -1,52 +1,3 @@
-.introduction-container {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-}
-
-.introduction-container .pagination__introduction_company {
-  position: absolute;
-  left: 120px;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  width: fit-content;
-}
-
-.introduction-container
-  .pagination__introduction_company
-  .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  margin: 0;
-  background: var(--color-grey);
-  opacity: 1;
-}
-
-.introduction-container
-  .pagination__introduction_company
-  .swiper-pagination-bullet-active {
-  width: 15px;
-  height: 15px;
-  background: transparent;
-  border-radius: 50%;
-  border: 4px solid var(--color-blue-main);
-}
-
-.introduction__company_slider {
-  margin-top: 50px;
-  width: 55.9%;
-}
-
-.swiper__introduction_company img {
-  width: 100%;
-  aspect-ratio: 1.14;
-  height: auto;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
 .company__page .results-title {
   width: 100%;
   color: var(--color-blue-main);
@@ -263,19 +214,6 @@
 }
 
 @media (max-width: 1440px) {
-  .company__page .introduction-content-text {
-    width: 98%;
-    margin-top: 30px;
-  }
-
-  .introduction__company_slider {
-    width: 53.2%;
-  }
-
-  .introduction-container .pagination__introduction_company {
-    left: 80px;
-  }
-
   .company__page .results-text {
     width: 53.2%;
   }
@@ -357,20 +295,7 @@
 }
 
 @media (max-width: 1029px) {
-  .company__page .introduction__substrate {
-    display: none;
-  }
-
-  .introduction-container {
-    flex-direction: column;
-  }
-
   .error-btn-home {
-    margin-top: 40px;
-  }
-
-  .introduction__company_slider {
-    width: 100%;
     margin-top: 40px;
   }
 
@@ -378,31 +303,6 @@
     aspect-ratio: 1.82;
     height: auto;
     object-fit: cover;
-  }
-
-  .introduction-container .pagination__introduction_company {
-    bottom: -20px;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-  }
-
-  .introduction-container
-    .pagination__introduction_company
-    .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-  }
-
-  .introduction-container
-    .pagination__introduction_company
-    .swiper-pagination-bullet-active {
-    width: 10px;
-    height: 10px;
-  }
-
-  .introduction-container .pagination__introduction_company {
-    left: 0;
   }
 
   .company__page .results-text-wrapper {
@@ -492,10 +392,6 @@
 }
 
 @media (max-width: 542px) {
-  .introduction__company_slider {
-    margin-top: 70px;
-  }
-
   .company__page .results-numbers {
     flex-direction: column;
   }
@@ -520,10 +416,6 @@
 }
 
 @media (max-width: 480px) {
-  .introduction__company_slider {
-    margin-top: 50px;
-  }
-
   .principles__list_wrapper {
     flex-direction: column;
     margin-top: 50px;
@@ -544,15 +436,6 @@
 }
 
 @media (max-width: 390px) {
-  .introduction-content-text {
-    font-size: 5.9vw;
-    line-height: 7vw;
-  }
-
-  .introduction__company_slider {
-    margin-top: 30px;
-  }
-
   .swiper__introduction_company img {
     aspect-ratio: 1.09;
   }

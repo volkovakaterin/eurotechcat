@@ -276,33 +276,6 @@ if (document.querySelector(".swiper-news")) {
   });
 }
 
-if (document.querySelector(".swiper__introduction_company")) {
-  const swiperIntroductionCompany = new Swiper(
-    ".swiper__introduction_company",
-    {
-      direction: "horizontal",
-      loop: true,
-      speed: 900,
-
-      pagination: {
-        el: ".pagination__introduction_company",
-      },
-    }
-  );
-}
-
-if (document.querySelector(".swiper__one_news")) {
-  const swiperOneNews = new Swiper(".swiper__one_news", {
-    direction: "horizontal",
-    loop: true,
-    speed: 900,
-
-    pagination: {
-      el: ".pagination__one_news",
-    },
-  });
-}
-
 if (document.querySelector(".swiper__introduction_products")) {
   const swiperProducts = new Swiper(".swiper__introduction_products", {
     direction: "horizontal",
@@ -396,26 +369,17 @@ function init() {
     zoom: 16,
   });
 
-  //Пишем свойства для нашей метки
   myPlacemark = new ymaps.Placemark(
     [55.754203, 37.556388],
     {
-      //hintContent: "Тут описание, которое всплывает при наведении",
       balloonContent: "",
     },
     {
-      // Опции.
-      // Необходимо указать данный тип макета. Показываем что это изображение.
       iconLayout: "default#image",
-      // Своё изображение иконки метки. Указываем путь до картинки
       iconImageHref: "./assets/images/location.png",
-      // Размеры метки.
       iconImageSize: [46, 58],
-      // Смещение левого верхнего угла иконки относительно её "ножки" (точки привязки).
-      // iconImageOffset: [-170, -270],
     }
   );
-  //Добавляем метку на карту + убираем скролл мышкой
   myMap.geoObjects.add(myPlacemark);
   myMap.behaviors.disable("scrollZoom");
 }
