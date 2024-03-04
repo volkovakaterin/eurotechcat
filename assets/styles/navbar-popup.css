@@ -1,31 +1,31 @@
 .menu__popup {
   position: fixed;
-  z-index: -99;
+  z-index: 99;
+  pointer-events: none;
   right: 0;
   top: 0;
   width: 0;
   height: 0;
   opacity: 0;
-  /* -webkit-transition: -webkit-transform 1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s,
-    opacity 0s linear 1s;
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0s,
+    opacity 0.3s linear 0s, width 0.3s linear, height 0.3s linear;
   transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0s,
-    opacity 0.1s linear 0s, width 0.1s linear;
-  -webkit-transform: translateX(100%); */
+    opacity 0.3s linear 0s, width 0.3s linear, height 0.3s linear;
+  -webkit-transform: translateX(100%);
   transform: translateX(100%);
 }
 
 .menu__popup.visible {
-  z-index: 99;
   width: 48%;
-  max-width: 900px;
   height: 100vh;
+  max-width: 900px;
   opacity: 1;
-  /* -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)
-      0.2s,
-    opacity 0s linear 0s;
+  pointer-events: auto;
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0s,
+    opacity 0.3s linear 0s, width 0.3s linear, height 0.3s linear;
   transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0s,
-    opacity 0.1s linear 0s, width 0.1s linear;
-  -webkit-transform: translateX(0); */
+    opacity 0.3s linear 0s, width 0.3s linear, height 0.3s linear;
+  -webkit-transform: translateX(0);
   transform: translateX(0);
 }
 

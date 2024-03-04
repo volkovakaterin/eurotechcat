@@ -133,7 +133,7 @@
 
 .product__slider {
   position: relative;
-  z-index: 99;
+  z-index: 10;
   margin-left: -8.9%;
   width: 58.9%;
 }
