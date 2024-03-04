@@ -276,18 +276,6 @@ if (document.querySelector(".swiper-news")) {
   });
 }
 
-if (document.querySelector(".swiper__introduction_products")) {
-  const swiperProducts = new Swiper(".swiper__introduction_products", {
-    direction: "horizontal",
-    loop: true,
-    speed: 900,
-
-    pagination: {
-      el: ".pagination__introduction_products",
-    },
-  });
-}
-
 if (document.querySelector(".swiper__oil_additive")) {
   const swiperOilAdditive = new Swiper(".swiper__oil_additive", {
     direction: "horizontal",

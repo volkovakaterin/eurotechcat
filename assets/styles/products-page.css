@@ -2,7 +2,6 @@
   padding-bottom: 50px;
 }
 
-.introduction-container .pagination__introduction_products,
 .products__page .pagination__product__slider {
   position: absolute;
   left: 0;
@@ -13,9 +12,6 @@
   width: fit-content;
 }
 
-.introduction-container
-  .pagination__introduction_products
-  .swiper-pagination-bullet,
 .products__page .pagination__product__slider .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
@@ -24,9 +20,6 @@
   opacity: 1;
 }
 
-.introduction-container
-  .pagination__introduction_products
-  .swiper-pagination-bullet-active,
 .products__page .pagination__product__slider .swiper-pagination-bullet-active {
   width: 15px;
   height: 15px;
@@ -41,12 +34,6 @@
   bottom: -70px;
 }
 
-.introduction__products_slider {
-  margin-top: 50px;
-  width: 55.9%;
-}
-
-.swiper__introduction_products img,
 .swiper__product img {
   width: 100%;
   aspect-ratio: 1.14;
@@ -170,10 +157,6 @@
 }
 
 @media (max-width: 1440px) {
-  .introduction__products_slider {
-    width: 53.2%;
-  }
-
   .product__section {
     margin-top: 80px;
   }
@@ -221,19 +204,20 @@
 }
 
 @media (max-width: 1029px) {
-  .introduction__products_slider {
-    width: 100%;
-    margin-top: 100px;
+  .product__section {
+    margin-top: 0px;
   }
 
-  .swiper__introduction_products img,
+  .products__page .pagination__product__slider {
+    right: 0;
+  }
+
   .swiper__product img {
     aspect-ratio: 1.62;
     height: auto;
     object-fit: cover;
   }
 
-  .introduction-container .pagination__introduction_products,
   .products__page .pagination__product__slider {
     bottom: -20px;
     justify-content: center;
@@ -241,25 +225,17 @@
     width: 100%;
   }
 
-  .introduction-container
-    .pagination__introduction_products
-    .swiper-pagination-bullet,
   .products__page .pagination__product__slider .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
   }
 
-  .introduction-container
-    .pagination__introduction_products
-    .swiper-pagination-bullet-active,
   .products__page
     .pagination__product__slider
     .swiper-pagination-bullet-active {
     width: 10px;
     height: 10px;
   }
-
-  .introduction-container .pagination__introduction_products,
   .products__page .pagination__product__slider {
     left: 0;
   }
@@ -326,28 +302,13 @@
   }
 }
 
-@media (max-width: 542px) {
-  .introduction__products_slider {
-    margin-top: 70px;
-  }
-}
-
 @media (max-width: 480px) {
-  .introduction__products_slider {
-    margin-top: 50px;
-  }
-
   .product__content::before {
     height: calc(100% + 167px);
   }
 }
 
 @media (max-width: 390px) {
-  .introduction__products_slider {
-    margin-top: 30px;
-  }
-
-  .swiper__introduction_products img,
   .swiper__product img {
     aspect-ratio: 1.09;
   }
