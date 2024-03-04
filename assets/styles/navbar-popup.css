@@ -6,26 +6,26 @@
   width: 0;
   height: 0;
   opacity: 0;
-  -webkit-transition: -webkit-transform 1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s,
+  /* -webkit-transition: -webkit-transform 1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s,
     opacity 0s linear 1s;
   transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0s,
     opacity 0.1s linear 0s, width 0.1s linear;
-  -webkit-transform: translateX(100%);
+  -webkit-transform: translateX(100%); */
   transform: translateX(100%);
 }
 
 .menu__popup.visible {
   z-index: 99;
-  width: 47%;
+  width: 48%;
   max-width: 900px;
   height: 100vh;
   opacity: 1;
-  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)
+  /* -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)
       0.2s,
     opacity 0s linear 0s;
   transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0s,
     opacity 0.1s linear 0s, width 0.1s linear;
-  -webkit-transform: translateX(0);
+  -webkit-transform: translateX(0); */
   transform: translateX(0);
 }
 
@@ -88,13 +88,16 @@
   font-weight: 600;
   text-transform: uppercase;
   color: var(--color-black-1);
+  transition: 0.3s;
 }
 
 .menu-products-list-title:hover a {
   color: var(--color-blue-1);
+  transition: 0.3s;
 }
 
 .menu-products-list {
+  position: relative;
   margin-top: 30px;
 }
 
@@ -110,10 +113,37 @@
   line-height: 25px;
   font-weight: 500;
   color: var(--color-grey-4);
+  transition: 0.3s;
 }
 
-.menu-products-link.active {
+.menu-products-item:hover .menu-products-link {
   color: var(--color-blue-1);
+  transition: 0.3s;
+}
+
+.menu-products-item img {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  top: 0;
+  right: 0;
+  width: 53%;
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.menu-products-item:hover img {
+  z-index: 99;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.menu-products-link {
+  width: 46%;
 }
 
 .menu-products-link span {
@@ -149,7 +179,7 @@
   }
 
   .menu-products-list_content {
-    padding: 70px 120px 80px 50px;
+    padding: 70px 80px 80px 50px;
   }
 
   .menu-products-list-title a {
@@ -163,6 +193,14 @@
 
   .menu-products-item {
     margin-bottom: 10px;
+  }
+
+  .menu-products-item img {
+    width: 42.8%;
+  }
+
+  .menu-products-item .menu-products-link {
+    width: 55%;
   }
 }
 
@@ -294,6 +332,14 @@
 
   .menu-products-list-title {
     display: none;
+  }
+
+  .menu-products-item:hover img {
+    display: none;
+  }
+
+  .menu-products-item .menu-products-link {
+    width: 100%;
   }
 }
 

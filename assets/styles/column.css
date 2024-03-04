@@ -1,0 +1,157 @@
+.header__light .header-menu_link {
+  color: var(--color-black-1);
+}
+
+.header__light .header-menu_item:hover .header-menu_link {
+  color: var(--color-grey-4);
+}
+
+.header-container.header__light .header-menu_item.menu-products span svg path {
+  fill: var(--color-black-1);
+}
+
+.column__container {
+  padding-bottom: 100px;
+}
+
+.column__content {
+  margin-top: 188px;
+}
+
+.column__title,
+.column__subject {
+  width: 45.2%;
+}
+
+.column__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.privacy__policy_item:nth-child(n + 2) {
+  margin-top: 60px;
+}
+
+.privacy__policy_item_title {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.privacy__policy_item_text {
+  margin-top: 20px;
+}
+
+.links__sources_column_title {
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--color-black-1);
+}
+
+.links__sources_list {
+  margin-top: 20px;
+}
+
+.links__sources_item {
+  margin-top: 10px;
+}
+
+.links__sources_item,
+.links__sources_item a {
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--color-grey-4);
+}
+
+.links__sources_item a {
+  text-decoration: underline;
+}
+
+@media (max-width: 1440px) {
+  .column__container {
+    padding-bottom: 80px;
+  }
+
+  .column__content {
+    margin-top: 130px;
+  }
+
+  .column__wrapper {
+    margin-top: 40px;
+  }
+
+  .column__title,
+  .column__subject {
+    width: 41.5%;
+  }
+}
+
+@media (max-width: 1029px) {
+  .column__container {
+    padding-bottom: 60px;
+  }
+
+  .column__content {
+    margin-top: 60px;
+  }
+
+  .column__wrapper {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .links__sources_wrapper {
+    margin-top: 40px;
+  }
+
+  .column__title,
+  .column__subject {
+    width: 100%;
+  }
+
+  .privacy__policy_item,
+  .privacy__policy_item:nth-child(n + 2) {
+    margin-top: 30px;
+  }
+
+  .privacy__policy_item_title {
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  .column__subject:nth-child(n + 2) .links__sources_column_title {
+    display: none;
+  }
+
+  .column__subject:nth-child(n + 2) .links__sources_list {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  /* .privacy__policy_container, */
+  .column__container {
+    padding-bottom: 40px;
+  }
+
+  /* .privacy__policy_content, */
+  .column__content {
+    margin-top: 40px;
+  }
+
+  .privacy__policy_item,
+  .privacy__policy_item:nth-child(n + 2) {
+    margin-top: 20px;
+  }
+
+  .privacy__policy_item_title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .privacy__policy_item_text {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

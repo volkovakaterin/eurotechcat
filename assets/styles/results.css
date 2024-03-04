@@ -14,11 +14,7 @@
 .results-title {
   width: 49%;
   margin-top: 112px;
-  font-size: min(max(3.3vw, 48px), 64px);
-  font-weight: 600;
-  line-height: 78px;
   color: var(--color-black);
-  text-transform: uppercase;
 }
 
 .results-numbers-container {
@@ -79,8 +75,6 @@
   .results-title {
     width: 46.4%;
     margin-top: 100px;
-    font-size: min(max(3.3vw, 40px), 48px);
-    line-height: 59px;
   }
 
   .results-number-value {
@@ -178,8 +172,6 @@
 
   .results-title {
     margin-top: 40px;
-    font-size: 32px;
-    line-height: 39px;
   }
 
   .results-numbers {

@@ -14,6 +14,9 @@
 @import "./company.css";
 @import "./one-news.css";
 @import "./products-page.css";
+@import "./one-product.css";
+@import "./contacts.css";
+@import "./column.css";
 
 @font-face {
   font-family: "Winston";
@@ -36,6 +39,13 @@
     url("../fonts/Winston-SemiBold.woff") format("woff");
 }
 
+@font-face {
+  font-family: "Micradi";
+  font-weight: 400;
+  src: url("../fonts/micradi.woff2") format("woff2"),
+    url("../fonts/micradi.woff") format("woff");
+}
+
 :root {
   font-family: "Winston";
   --color-white-main: #f6f6f6;
@@ -55,11 +65,13 @@
   --color-blue-4: #b9cae3;
   --color-blue-5: #234277;
   --color-blue-6: #456293;
+  --color-blue-7: #8ba3c7;
   --color-black: #18191a;
   --color-black-1: #313234;
   --color-black-main: #000;
   --color-black-1: #01050b;
   --color-error: #cf1313;
+  --color-white-2: #f6faff;
 }
 
 * {
@@ -106,30 +118,44 @@ main {
 h1,
 h2,
 h3,
-h4 {
-  word-wrap: break-word;
+h4,
+h5 {
+  font-family: "Micradi";
+  font-weight: 400;
+  word-break: break-word;
 }
 
 h1 {
-  font-weight: 600;
-  font-size: 80px;
-  line-height: 98px;
+  font-size: 60px;
+  line-height: 73px;
   text-transform: uppercase;
   color: var(--color-blue-main);
 }
 
 h2 {
-  font-size: min(max(3.3vw, 48px), 64px);
-  font-weight: 600;
-  line-height: 78px;
+  font-size: min(max(2.9vw, 40px), 55px);
+  line-height: min(max(3.5vw, 49px), 67px);
   color: var(--color-black);
   text-transform: uppercase;
 }
 
 h3 {
   font-size: 32px;
-  font-weight: 600;
   line-height: 39px;
+  text-transform: uppercase;
+  color: var(--color-blue-main);
+}
+
+h4 {
+  font-size: min(max(1.7vw, 28px), 32px);
+  line-height: min(max(2.1vw, 34px), 39px);
+  color: var(--color-blue-main);
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: min(max(1.4vw, 20px), 26px);
+  line-height: min(max(1.7vw, 24px), 31px);
   text-transform: uppercase;
   color: var(--color-blue-main);
 }
@@ -139,6 +165,7 @@ p {
   font-size: 18px;
   line-height: 25px;
   color: var(--color-grey-4);
+  word-wrap: break-word;
 }
 
 section {
@@ -448,18 +475,28 @@ textarea:focus {
 
 @media (max-width: 1440px) {
   h1 {
-    font-size: min(max(5.5vw, 60px), 80px);
-    line-height: min(max(7vw, 73px), 98px);
+    font-size: 48px;
+    line-height: 59px;
   }
 
   h2 {
-    font-size: min(max(3.3vw, 40px), 48px);
-    line-height: 59px;
+    font-size: min(max(2.8vw, 36px), 40px);
+    line-height: min(max(3.4vw, 44px), 49px);
   }
 
   h3 {
     font-size: 23px;
     line-height: 28px;
+  }
+
+  h4 {
+    font-size: min(max(2vw, 24px), 28px);
+    line-height: min(max(2.4vw, 29px), 34px);
+  }
+
+  h5 {
+    font-size: min(max(1.4vw, 18px), 20px);
+    line-height: min(max(1.7vw, 22px), 24px);
   }
 
   section {
@@ -468,9 +505,14 @@ textarea:focus {
 }
 
 @media (max-width: 1029px) {
-  .h1 {
-    font-size: 48px;
-    line-height: 59px;
+  h1 {
+    font-size: 44px;
+    line-height: 54px;
+  }
+
+  h2 {
+    font-size: min(max(4.6vw, 26px), 36px);
+    line-height: min(max(5.7vw, 31px), 44px);
   }
 
   h3 {
@@ -478,25 +520,28 @@ textarea:focus {
     line-height: 24px;
   }
 
+  h4 {
+    font-size: min(max(3.2vw, 20px), 24px);
+    line-height: min(max(3.9vw, 24px), 29px);
+  }
+
   section {
     padding: 0 20px;
   }
-}
 
-@media (max-width: 500px) {
-  h2 {
-    font-size: 32px;
-    line-height: 39px;
+  span {
+    width: 100%;
   }
 }
 
 @media (max-width: 390px) {
-  .h1 {
-    font-size: 13vw;
+  h1 {
+    font-size: 7.7vw;
+    line-height: 10vw;
   }
 
-  .p {
-    font-size: 5.9vw;
-    line-height: 7vw;
+  p {
+    font-size: 16px;
+    line-height: 22px;
   }
 }

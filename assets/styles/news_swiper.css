@@ -175,10 +175,12 @@
   font-weight: 400;
   color: var(--color-blue-1);
   background: transparent;
+  transition: 0.3s;
 }
 
 .news-card-details button:hover {
   color: var(--color-blue-5);
+  transition: 0.3s;
 }
 
 .news-card-details button span {

@@ -27,7 +27,7 @@ const navbarPopup = document.querySelector(".menu__popup");
 function addActiveMenu() {
   document.querySelectorAll(".header-menu_link").forEach((item) => {
     const linkHref = item.getAttribute("href");
-    if (currentLink === linkHref) {
+    if (currentLink.replace(/.*\//, "") === linkHref.replace(/.*\//, "")) {
       item.classList.add("active");
     }
   });
@@ -55,26 +55,30 @@ function controlBurger() {
 }
 
 //управление сабменю
-function controlProductsMenu(productsLink) {
-  productsLink.addEventListener("click", (e) => {
-    console.log("rere");
-    const withinBoundaries = e.composedPath().includes(submenuProducts);
-    if (
-      e.target !== productsLink.querySelector(".header-menu_link") &&
-      !withinBoundaries
-    ) {
-      if (window.innerWidth > 1029) {
-        console.log(e.target);
-        navbarPopup.classList.toggle("visible");
-        maskEl.classList.toggle("active");
-        bodyEl.classList.toggle("hidden");
-      } else {
-        submenuProducts.classList.toggle("visible");
-        navbarPopup
-          .querySelector(".menu-products")
-          .classList.toggle("expanded");
+function controlProductsMenu() {
+  const subMenuBtn = document.querySelector(".header-container .menu-products");
+  document.addEventListener("mouseover", (e) => {
+    if (window.innerWidth > 1029) {
+      const withinBoundaries = e.composedPath().includes(subMenuBtn);
+      if (withinBoundaries) {
+        navbarPopup.classList.add("visible");
+        maskEl.classList.add("active");
+        bodyEl.classList.add("hidden");
+      } else if (!e.composedPath().includes(navbarPopup)) {
+        navbarPopup.classList.remove("visible");
+        maskEl.classList.remove("active");
+        bodyEl.classList.remove("hidden");
       }
-    } else return;
+    }
+  });
+  const subMenuBtnAdaptive = document.querySelector(
+    ".menu__popup .menu-products"
+  );
+  subMenuBtnAdaptive.addEventListener("click", (e) => {
+    if (e.target !== subMenuBtnAdaptive.querySelector(".header-menu_link")) {
+      submenuProducts.classList.toggle("visible");
+      navbarPopup.querySelector(".menu-products").classList.toggle("expanded");
+    }
   });
 }
 
@@ -88,24 +92,6 @@ function clickOverlay() {
     submenuProducts.classList.remove("visible");
     navbarPopup.querySelector(".menu-products").classList.remove("expanded");
   });
-}
-
-//выделение активного пункта сабменю
-function addActiveSubmenu() {
-  submenuProducts.onclick = function (e) {
-    const target = e.target;
-    if (target.tagName == "A") {
-      if (selectedLink) {
-        selectedLink.classList.remove("active");
-      }
-      if (target !== selectedLink) {
-        target.classList.add("active");
-        selectedLink = target;
-      } else if (target == selectedLink) {
-        selectedLink = false;
-      }
-    }
-  };
 }
 
 //проверка поля поиска на наличие введенных данных
@@ -201,7 +187,6 @@ function chooseSelect(option) {
 //закрытие select по клику вне элемента
 function closeSelect() {
   document.addEventListener("click", (e) => {
-    console.log(e.target);
     selectCustom.forEach((item) => {
       const withinBoundaries = e.composedPath().includes(item);
       if (!withinBoundaries) {
@@ -215,16 +200,10 @@ document.addEventListener("DOMContentLoaded", function () {
   clickOverlay();
   addActiveMenu();
   controlBurger();
-
-  console.log(menuProducts);
-
-  menuProducts.forEach((item) => {
-    controlProductsMenu(item);
-  });
-
-  if (submenuProducts) {
-    addActiveSubmenu();
-  }
+  controlProductsMenu();
+  // if (submenuProducts) {
+  //   addActiveSubmenu();
+  // }
   inputSearch.forEach((item) => {
     checkSearchField(item);
   });
@@ -252,6 +231,7 @@ if (document.querySelector(".swiper-introduction")) {
   const swiperIntroduction = new Swiper(".swiper-introduction", {
     direction: "horizontal",
     loop: true,
+    spaceBetween: 20,
     speed: 900,
 
     pagination: {
@@ -292,18 +272,6 @@ if (document.querySelector(".swiper-news")) {
 
     pagination: {
       el: ".swiper-pagination-news",
-    },
-  });
-}
-
-if (document.querySelector(".swiper-news_page")) {
-  const swiperNewsPage = new Swiper(".swiper-news_page", {
-    direction: "horizontal",
-    loop: true,
-    speed: 900,
-
-    pagination: {
-      el: ".swiper-pagination-news_page",
     },
   });
 }
@@ -417,4 +385,37 @@ if (document.querySelector(".swiper__catalysts")) {
       el: ".pagination__catalysts",
     },
   });
+}
+
+ymaps.ready(init);
+var myMap, myPlacemark;
+
+function init() {
+  myMap = new ymaps.Map("map", {
+    center: [55.754203, 37.556388],
+    zoom: 16,
+  });
+
+  //Пишем свойства для нашей метки
+  myPlacemark = new ymaps.Placemark(
+    [55.754203, 37.556388],
+    {
+      //hintContent: "Тут описание, которое всплывает при наведении",
+      balloonContent: "",
+    },
+    {
+      // Опции.
+      // Необходимо указать данный тип макета. Показываем что это изображение.
+      iconLayout: "default#image",
+      // Своё изображение иконки метки. Указываем путь до картинки
+      iconImageHref: "./assets/images/location.png",
+      // Размеры метки.
+      iconImageSize: [46, 58],
+      // Смещение левого верхнего угла иконки относительно её "ножки" (точки привязки).
+      // iconImageOffset: [-170, -270],
+    }
+  );
+  //Добавляем метку на карту + убираем скролл мышкой
+  myMap.geoObjects.add(myPlacemark);
+  myMap.behaviors.disable("scrollZoom");
 }

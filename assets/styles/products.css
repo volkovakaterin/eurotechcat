@@ -68,6 +68,12 @@
   padding: 60px 30px 30px;
 }
 
+.products-card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .products-card-substrate {
   position: absolute;
   bottom: 0;
@@ -138,10 +144,6 @@
   align-items: center;
   margin-top: 30px;
   margin-bottom: 176px;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 39px;
-  text-transform: uppercase;
   text-align: center;
 }
 
@@ -202,8 +204,6 @@
   .products-card-title {
     margin-top: 20px;
     margin-bottom: 144px;
-    font-size: 23px;
-    line-height: 28px;
   }
 }
 
@@ -260,8 +260,6 @@
   .products-card-title {
     margin-top: 18px;
     margin-bottom: 101px;
-    font-size: 20px;
-    line-height: 24px;
   }
 
   .products-container .products-card-btn_details {
@@ -273,18 +271,9 @@
   }
 }
 
-@media (min-width: 621px) and (max-width: 800px) {
+@media (min-width: 621px) and (max-width: 788px) {
   .products-container .button.learn-more {
     width: 9rem;
-  }
-
-  .products-container .button.learn-more .circle {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .products-container .button.learn-more .circle .icon.arrow {
-    left: 0.5rem;
   }
 }
 
