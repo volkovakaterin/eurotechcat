@@ -22,6 +22,7 @@ const selectBody = document.querySelectorAll(".select__body");
 const optionSelect = document.querySelectorAll(".option__item");
 const selectCustom = document.querySelectorAll(".select__custom");
 const navbarPopup = document.querySelector(".menu__popup");
+const boxes = Array.from(document.querySelectorAll(".accordion_box"));
 
 //выделение активного пункта меню
 function addActiveMenu() {
@@ -69,15 +70,6 @@ function controlProductsMenu() {
         maskEl.classList.remove("active");
         bodyEl.classList.remove("hidden");
       }
-    }
-  });
-  const subMenuBtnAdaptive = document.querySelector(
-    ".menu__popup .menu-products"
-  );
-  subMenuBtnAdaptive.addEventListener("click", (e) => {
-    if (e.target !== subMenuBtnAdaptive.querySelector(".header-menu_link")) {
-      submenuProducts.classList.toggle("visible");
-      navbarPopup.querySelector(".menu-products").classList.toggle("expanded");
     }
   });
 }
@@ -196,14 +188,29 @@ function closeSelect() {
   });
 }
 
+//аккордеон
+function boxHandler(e) {
+  if (window.innerWidth < 1030) {
+    let currentBox = e.target.closest(".accordion_box");
+    console.log(currentBox);
+    let currentContent = currentBox.querySelector(
+      ".menu-products-list_container"
+    );
+    console.log(currentContent);
+    currentBox.classList.toggle("expanded");
+    if (currentBox.classList.contains("expanded")) {
+      currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+    } else {
+      currentContent.style.maxHeight = 0;
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   clickOverlay();
   addActiveMenu();
   controlBurger();
   controlProductsMenu();
-  // if (submenuProducts) {
-  //   addActiveSubmenu();
-  // }
   inputSearch.forEach((item) => {
     checkSearchField(item);
   });
@@ -225,6 +232,9 @@ document.addEventListener("DOMContentLoaded", function () {
       chooseSelect(option);
     });
   }
+  boxes.forEach((box) => {
+    box.addEventListener("click", boxHandler);
+  });
 });
 
 if (document.querySelector(".swiper-introduction")) {

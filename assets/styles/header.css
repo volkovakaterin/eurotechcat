@@ -239,6 +239,10 @@
   }
 
   .menu-products {
+    gap: 0;
+  }
+
+  .menu-products.expanded {
     gap: 15px;
   }
 
