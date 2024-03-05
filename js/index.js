@@ -192,11 +192,9 @@ function closeSelect() {
 function boxHandler(e) {
   if (window.innerWidth < 1030) {
     let currentBox = e.target.closest(".accordion_box");
-    console.log(currentBox);
     let currentContent = currentBox.querySelector(
       ".menu-products-list_container"
     );
-    console.log(currentContent);
     currentBox.classList.toggle("expanded");
     if (currentBox.classList.contains("expanded")) {
       currentContent.style.maxHeight = currentContent.scrollHeight + "px";
@@ -204,6 +202,108 @@ function boxHandler(e) {
       currentContent.style.maxHeight = 0;
     }
   }
+}
+
+//пагинация
+const postsBoxEl = document.querySelector(".posts__container");
+const paginationBox = document.querySelector(".pagination__list");
+const paginationPrev = document.querySelector(".pagination__prev");
+const paginationNext = document.querySelector(".pagination__next");
+
+async function getData() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await response.json();
+  return data;
+}
+
+async function pagination() {
+  const posts = await getData();
+  let rows = 5;
+  function displayList(arrData, rowPerPage, page = 1) {
+    page--;
+    // postsBoxEl.innerHTML = "";
+    const start = rowPerPage * page;
+    const end = start + rowPerPage;
+    const paginatedData = arrData.slice(start, end);
+    // paginatedData.forEach((post) => {
+    //   const postEl = document.createElement("div");
+    //   postEl.classList.add("post_item");
+    //   postEl.innerText = `${post.title}`;
+    //   postsBoxEl.appendChild(postEl);
+    //   console.log(post);
+    // });
+  }
+  function displayPagination(arrData, rowPerPage, currentPage = 1) {
+    const pagesCount = Math.ceil(arrData.length / rowPerPage);
+    let left = Math.max(currentPage - 1, 1);
+    let right = Math.min(left + 1 * 2, pagesCount);
+    left = Math.max(right - 1 * 2, 1);
+    let items = [];
+    if (left > 1) items.push(1);
+    if (left > 2) items.push("...");
+    for (let page = left; page <= right; page++) items.push(page);
+    if (right < pagesCount - 1) items.push("...");
+    if (right < pagesCount) items.push(pagesCount);
+
+    paginationBox.innerHTML = "";
+
+    items.forEach((item) => {
+      const liEl = displayPaginationBtn(item, currentPage);
+      paginationBox.appendChild(liEl);
+    });
+
+    if (currentPage == 1) {
+      paginationPrev.classList.add("disable");
+    } else {
+      paginationPrev.classList.remove("disable");
+    }
+    if (currentPage == pagesCount) {
+      paginationNext.classList.add("disable");
+    } else {
+      paginationNext.classList.remove("disable");
+    }
+  }
+  function displayPaginationBtn(page, currentPage) {
+    const liEl = document.createElement("li");
+    liEl.classList.add("pagination__item");
+    if (page == currentPage) {
+      liEl.classList.add("active");
+    }
+    liEl.innerText = page;
+    liEl.addEventListener("click", (e) => {
+      if (page !== "...") {
+        displayList(posts, rows, page);
+        displayPagination(posts, rows, page);
+      }
+    });
+
+    return liEl;
+  }
+
+  function scrollBtn() {
+    paginationNext.addEventListener("click", (e) => {
+      if (!paginationNext.classList.contains("disable")) {
+        const currentPage = document.querySelector(".pagination__item.active");
+        const numberPage = currentPage.innerText;
+        const nextPage = Number(numberPage) + 1;
+        displayList(posts, rows, nextPage);
+        displayPagination(posts, rows, nextPage);
+      }
+    });
+    paginationPrev.addEventListener("click", (e) => {
+      if (!paginationPrev.classList.contains("disable")) {
+        const currentPage = document.querySelector(".pagination__item.active");
+        const numberPage = currentPage.innerText;
+        const nextPage = Number(numberPage) - 1;
+        displayList(posts, rows, nextPage);
+        displayPagination(posts, rows, nextPage);
+      }
+    });
+  }
+
+  displayList(posts, rows);
+  displayPagination(posts, rows);
+  scrollBtn();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -235,6 +335,7 @@ document.addEventListener("DOMContentLoaded", function () {
   boxes.forEach((box) => {
     box.addEventListener("click", boxHandler);
   });
+  pagination();
 });
 
 if (document.querySelector(".swiper-introduction")) {

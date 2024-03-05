@@ -17,6 +17,7 @@
 @import "./one-product.css";
 @import "./contacts.css";
 @import "./column.css";
+@import "./searching-page.css";
 
 @font-face {
   font-family: "Winston";
@@ -69,7 +70,7 @@
   --color-black: #18191a;
   --color-black-1: #313234;
   --color-black-main: #000;
-  --color-black-1: #01050b;
+  /* --color-black-1: #01050b; */
   --color-error: #cf1313;
   --color-white-2: #f6faff;
 }
