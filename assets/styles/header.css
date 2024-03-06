@@ -131,7 +131,8 @@
   gap: 10.5%;
 }
 
-.header-menu_link {
+.header-menu_link,
+.header-menu_item {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -141,7 +142,9 @@
 }
 
 .header-menu_item:hover .header-menu_link,
-.header-menu_link.active {
+.header-menu_item:hover,
+.header-menu_link.active,
+.header-menu_item.active {
   color: var(--color-blue-6);
   transition: 0.3s;
 }

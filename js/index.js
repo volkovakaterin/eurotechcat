@@ -72,7 +72,7 @@ function controlProductsMenu() {
         navbarPopup.classList.add("visible");
         maskEl.classList.add("active");
         bodyEl.classList.add("hidden");
-      } else if (!e.composedPath().includes(navbarPopup)) {
+      } else if (e.target == maskEl) {
         navbarPopup.classList.remove("visible");
         maskEl.classList.remove("active");
         bodyEl.classList.remove("hidden");

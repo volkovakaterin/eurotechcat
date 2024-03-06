@@ -181,10 +181,10 @@ section {
   height: 0;
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: height 0.5s linear 0.2s, opacity 0.5s linear 0.2s,
-    background-color 0.5s linear 0.2s, width 0.5s linear 0.2s;
-  transition: height 0.5s linear 0.2s, opacity 0.5s linear 0.2s,
-    background-color 0.5s linear 0.2s, width 0.5s linear 0.2s;
+  -webkit-transition: height 0.5s linear, opacity 0.5s linear,
+    background-color 0.5s linear, width 0.5s linear;
+  transition: height 0.5s linear, opacity 0.5s linear,
+    background-color 0.5s linear, width 0.5s linear;
 }
 
 .mask.active {
@@ -195,10 +195,10 @@ section {
   background-color: var(--color-black-1);
   opacity: 0.8;
   pointer-events: auto;
-  -webkit-transition: height 0.5s linear 0.4s, opacity 0.5s linear 0.4s,
-    background-color 0.5s linear 0.4s, width 0.5s linear 0.4s;
-  transition: height 0.5s linear 0.4s, opacity 0.5s linear 0.4s,
-    background-color 0.5s linear 0.4s, width 0.5s linear 0.4s;
+  -webkit-transition: height 0.5s linear, opacity 0.5s linear,
+    background-color 0.5s linear, width 0.5s linear;
+  transition: height 0.5s linear, opacity 0.5s linear,
+    background-color 0.5s linear, width 0.5s linear;
 }
 
 .block-wrapper {

@@ -1,8 +1,10 @@
-.header__light .header-menu_link {
+.header__light .header-menu_link,
+.header__light .header-menu_item {
   color: var(--color-black-1);
 }
 
-.header__light .header-menu_item:hover .header-menu_link {
+.header__light .header-menu_item:hover .header-menu_link,
+.header__light .header-menu_item:hover .header-menu_item {
   color: var(--color-grey-4);
 }
 
