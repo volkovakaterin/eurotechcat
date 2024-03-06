@@ -20,9 +20,10 @@
 
 .header-title {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 50%;
+  gap: 12.2%;
 }
 
 .header-logo {
@@ -125,8 +126,9 @@
 
 .header-menu_list {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
+  gap: 10.5%;
 }
 
 .header-menu_link {
@@ -178,6 +180,11 @@
     padding: 21px 80px 22px 80px;
   }
 
+  .header-title {
+    justify-content: space-between;
+    gap: 0;
+  }
+
   .header-logo {
     width: 34.7%;
   }
@@ -190,6 +197,16 @@
     width: 680px;
     padding-left: 110px;
     padding-right: 80px;
+  }
+
+  .header-menu_list {
+    gap: 8.68%;
+  }
+}
+
+@media (max-width: 1169px) {
+  .header-menu_list {
+    gap: 4.7%;
   }
 }
 

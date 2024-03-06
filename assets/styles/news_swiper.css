@@ -340,6 +340,8 @@
   .news-card-text {
     font-size: 16px;
     line-height: 19px;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
 
   .news-card-date {

@@ -197,13 +197,21 @@ function validationField() {
 //управление  select
 function manageSelect(item) {
   item.addEventListener("click", (e) => {
-    item.closest(".select__custom").classList.toggle("expanded");
+    const selectCustom = item.closest(".select__custom");
+    const currentContent = selectCustom.querySelector(".select__body");
+    selectCustom.classList.toggle("expanded");
+    if (selectCustom.classList.contains("expanded")) {
+      currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+    } else {
+      currentContent.style.maxHeight = 0;
+    }
   });
 }
 
 //выбор select
 function chooseSelect(option) {
   const selectParent = option.closest(".select__custom");
+  const currentContent = selectParent.querySelector(".select__body");
   const options = selectParent.querySelectorAll(".option__item");
   const currentSelect = selectParent.querySelector(".select__current");
   option.addEventListener("click", (e) => {
@@ -214,6 +222,7 @@ function chooseSelect(option) {
     currentSelect.innerText = option.innerText;
     currentSelect.classList.add("current__choose");
     selectParent.classList.remove("expanded");
+    currentContent.style.maxHeight = 0;
   });
 }
 
@@ -224,6 +233,8 @@ function closeSelect() {
       const withinBoundaries = e.composedPath().includes(item);
       if (!withinBoundaries) {
         item.classList.remove("expanded");
+        const currentContent = item.querySelector(".select__body");
+        currentContent.style.maxHeight = 0;
       }
     });
   });
@@ -392,9 +403,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cleanSearch(item);
   });
   liftUp();
-  if (feedbackFormSubmit) {
-    validationField();
-  }
+  if (feedbackFormSubmit) validationField();
   if (arrowSelect) {
     arrowSelect.forEach((item) => {
       manageSelect(item);
@@ -409,11 +418,9 @@ document.addEventListener("DOMContentLoaded", function () {
   boxes.forEach((box) => {
     box.addEventListener("click", boxHandler);
   });
-  if (paginationBox) {
-    pagination();
-  }
+  if (paginationBox) pagination();
   executeSearch();
-  setRequestSearch();
+  if (inputSearchingPage) setRequestSearch();
 });
 
 if (document.querySelector(".swiper-introduction")) {
