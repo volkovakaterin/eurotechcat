@@ -187,6 +187,7 @@
 @media (max-width: 1029px) {
   .ideology-container {
     flex-direction: column;
+    margin-top: 90px;
   }
 
   .ideology-description {
@@ -236,6 +237,10 @@
 }
 
 @media (max-width: 460px) {
+  .ideology-container {
+    margin-top: 80px;
+  }
+
   .ideology-description {
     width: 100%;
   }

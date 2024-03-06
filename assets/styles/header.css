@@ -47,10 +47,19 @@
   border-radius: 4px;
   border: 1px solid var(--color-white);
   background: rgba(255, 255, 255);
+  transition: 0.3s;
 }
 
 .search__wrapper:hover {
+  border: 1px solid var(--color-grey-9);
   background: var(--color-grey-9);
+  transition: 0.3s;
+}
+
+.search__wrapper:active {
+  border: 1px solid var(--color-white);
+  background: var(--color-white);
+  transition: 0.3s;
 }
 
 .search__img {
@@ -79,6 +88,7 @@
 }
 
 .search__wrapper.filled {
+  border: 1px solid var(--color-white);
   background: rgba(255, 255, 255, 0.8);
 }
 

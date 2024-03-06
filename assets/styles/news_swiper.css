@@ -146,6 +146,11 @@
   fill: var(--color-blue-main);
 }
 
+.swiper-news-button-prev,
+.swiper-news-button-next {
+  cursor: pointer;
+}
+
 .news-control {
   margin-top: 40px;
   display: flex;

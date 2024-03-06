@@ -203,6 +203,7 @@
 @media (max-width: 390px) {
   .successes-container {
     gap: 30px;
+    padding-top: 40px;
   }
 
   .successes-description-title {

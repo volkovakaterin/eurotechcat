@@ -195,6 +195,10 @@
   color: var(--color-grey);
 }
 
+.feedback-form-agreement-label span {
+  cursor: pointer;
+}
+
 .feedback-form-comment {
   width: 100%;
   height: 163px;
