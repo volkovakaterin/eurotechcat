@@ -1,5 +1,6 @@
 //переменные
 const currentLink = location.pathname;
+const fullPath = window.location.href;
 const btnBurger = document.querySelector(".header-burger");
 const headerMenu = document.querySelector(".header-menu");
 const bodyEl = document.querySelector("body");
@@ -23,6 +24,12 @@ const optionSelect = document.querySelectorAll(".option__item");
 const selectCustom = document.querySelectorAll(".select__custom");
 const navbarPopup = document.querySelector(".menu__popup");
 const boxes = Array.from(document.querySelectorAll(".accordion_box"));
+const inputSearchingPage = document.querySelector(
+  ".searching__field_container .search__field"
+);
+let request = "";
+const searchFieldMenu = document.querySelectorAll(".search__field_menu");
+const searchLoupMenu = document.querySelectorAll(".search__loup_menu");
 
 //выделение активного пункта меню
 function addActiveMenu() {
@@ -106,6 +113,40 @@ function cleanSearch(btn) {
     btn.closest(".search__wrapper").querySelector(".search__field").value = "";
     btn.closest(".search__wrapper").classList.remove("filled");
   });
+}
+
+//переход на страницу поиска
+function executeSearch() {
+  searchFieldMenu.forEach((item) => {
+    item.addEventListener("keyup", (e) => {
+      if (e.code === "Enter") {
+        request = e.target.value;
+        window.location.href = `./searching-page.html?q=${request}`;
+      }
+    });
+  });
+
+  searchLoupMenu.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      const field = item
+        .closest(".search__wrapper")
+        .querySelector(".search__field_menu");
+      request = field.value;
+      window.location.href = `./searching-page.html?q=${request}`;
+    });
+  });
+}
+
+//установить значение запроса поиска на странице поиска
+function setRequestSearch() {
+  const decodePath = decodeURIComponent(fullPath);
+  const index = decodePath.indexOf("q=");
+  if (index !== -1) {
+    const searchData = decodePath.substring(index + 2);
+    inputSearchingPage.value = searchData;
+  } else {
+    inputSearchingPage.value = "";
+  }
 }
 
 //наверх
@@ -211,7 +252,7 @@ const paginationPrev = document.querySelector(".pagination__prev");
 const paginationNext = document.querySelector(".pagination__next");
 
 async function getData() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await response.json();
   return data;
 }
@@ -221,17 +262,50 @@ async function pagination() {
   let rows = 5;
   function displayList(arrData, rowPerPage, page = 1) {
     page--;
-    // postsBoxEl.innerHTML = "";
+    postsBoxEl.innerHTML = "";
     const start = rowPerPage * page;
     const end = start + rowPerPage;
     const paginatedData = arrData.slice(start, end);
-    // paginatedData.forEach((post) => {
-    //   const postEl = document.createElement("div");
-    //   postEl.classList.add("post_item");
-    //   postEl.innerText = `${post.title}`;
-    //   postsBoxEl.appendChild(postEl);
-    //   console.log(post);
-    // });
+    paginatedData.forEach((post) => {
+      const postEl = document.createElement("div");
+      postEl.classList.add("post__item");
+      postEl.innerHTML = `<div class="post__date"><span>21.01.2024</span></div>
+      <div class="post__content">
+        <span
+          >${post.title}</span
+        >
+        <p>
+         ${post.body}
+        </p>
+      </div>
+      <div class="post__breadcrumbs">
+        <ul class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="./index.html">Главная</a>
+          </li>
+          <li class="breadcrumbs__item_arrow">
+            <svg
+              width="21"
+              height="36"
+              viewBox="0 0 21 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0.919099 0.585786C1.70015 -0.195262 2.96648 -0.195262 3.74753 0.585786L19.7475 16.5858C20.5286 17.3668 20.5286 18.6332 19.7475 19.4142L3.74753 35.4142C2.96648 36.1953 1.70015 36.1953 0.919099 35.4142C0.138051 34.6332 0.138051 33.3668 0.919099 32.5858L15.5049 18L0.919099 3.41421C0.138051 2.63317 0.138051 1.36683 0.919099 0.585786Z"
+                fill="#18191A"
+              />
+            </svg>
+          </li>
+          <li class="breadcrumbs__item">
+            <a href="./news-page.html">Новости</a>
+          </li>
+        </ul>
+      </div>`;
+      postsBoxEl.appendChild(postEl);
+    });
   }
   function displayPagination(arrData, rowPerPage, currentPage = 1) {
     const pagesCount = Math.ceil(arrData.length / rowPerPage);
@@ -335,7 +409,11 @@ document.addEventListener("DOMContentLoaded", function () {
   boxes.forEach((box) => {
     box.addEventListener("click", boxHandler);
   });
-  pagination();
+  if (paginationBox) {
+    pagination();
+  }
+  executeSearch();
+  setRequestSearch();
 });
 
 if (document.querySelector(".swiper-introduction")) {

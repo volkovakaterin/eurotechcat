@@ -68,6 +68,15 @@
 
 .post__content p {
   margin-top: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  line-clamp: 4;
+  box-orient: vertical;
 }
 
 .post__breadcrumbs .breadcrumbs__item {
@@ -212,6 +221,11 @@
 
   .post__item:nth-child(n + 2) {
     margin-top: 20px;
+  }
+
+  .post__content p {
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
   }
 
   .searching__results,
