@@ -544,8 +544,39 @@ if (document.querySelector(".swiper__catalysts")) {
   });
 }
 
+if (document.querySelector(".swiper__documents")) {
+  const swiperNews = new Swiper(".swiper__documents", {
+    direction: "horizontal",
+    loop: true,
+    slidesPerView: 1.5,
+    slidesPerGroup: 1,
+    spaceBetween: 20,
+    speed: 900,
+
+    breakpoints: {
+      391: {
+        slidesPerView: 1.77,
+      },
+
+      1030: {
+        slidesPerView: 3,
+        spaceBetween: 25,
+      },
+    },
+
+    navigation: {
+      nextEl: ".swiper__document_button_next",
+      prevEl: ".swiper__document_button_prev",
+    },
+
+    pagination: {
+      el: ".swiper__pagination_documents",
+    },
+  });
+}
+
 ymaps.ready(init);
-var myMap, myPlacemark;
+let myMap, myPlacemark;
 
 function init() {
   myMap = new ymaps.Map("map", {
