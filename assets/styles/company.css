@@ -237,10 +237,44 @@
   transition: 0.3s;
 }
 
+.document__card_image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.7;
+}
+
 .documents__container .swiper-slide img {
   border-radius: 4px 4px 0 0;
-  aspect-ratio: 0.7;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.document__card_zoom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.document__card:hover .document__card_zoom {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.document__card_zoom svg {
+  width: 48px;
+  height: 49px;
 }
 
 .document__card_title {
