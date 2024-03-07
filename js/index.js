@@ -79,7 +79,30 @@ function controlProductsMenu() {
       }
     }
   });
+
+  subMenuBtn.addEventListener("click", (e) => {
+    if (window.innerWidth > 1029 && e.target.tagName == "A") {
+      e.preventDefault();
+      navbarPopup.classList.add("visible");
+      maskEl.classList.add("active");
+      bodyEl.classList.add("hidden");
+    }
+  });
+
+  navbarPopup.querySelector(".menu-products").addEventListener("click", (e) => {
+    const withinBoundaries = e.composedPath().includes(submenuProducts);
+    if (window.innerWidth > 1029 && !withinBoundaries) {
+      e.preventDefault();
+      navbarPopup.classList.remove("visible");
+      maskEl.classList.remove("active");
+      bodyEl.classList.remove("hidden");
+    }
+  });
 }
+
+document.addEventListener("click", (e) => {
+  console.log(e.target);
+});
 
 //закрытие бургера и сабменю при нажатии на оверлэй
 function clickOverlay() {
