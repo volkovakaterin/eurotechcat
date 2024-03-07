@@ -30,6 +30,9 @@ const inputSearchingPage = document.querySelector(
 let request = "";
 const searchFieldMenu = document.querySelectorAll(".search__field_menu");
 const searchLoupMenu = document.querySelectorAll(".search__loup_menu");
+const documentZoom = document.querySelectorAll(".document__card_zoom");
+const zoomSlider = document.querySelector(".zoom__slider");
+const zoomCloseEl = document.querySelector(".zoom__slider_close ");
 
 //выделение активного пункта меню
 function addActiveMenu() {
@@ -72,7 +75,10 @@ function controlProductsMenu() {
         navbarPopup.classList.add("visible");
         maskEl.classList.add("active");
         bodyEl.classList.add("hidden");
-      } else if (e.target == maskEl) {
+      } else if (
+        e.target == maskEl &&
+        navbarPopup.classList.contains("visible")
+      ) {
         navbarPopup.classList.remove("visible");
         maskEl.classList.remove("active");
         bodyEl.classList.remove("hidden");
@@ -99,10 +105,6 @@ function controlProductsMenu() {
     }
   });
 }
-
-document.addEventListener("click", (e) => {
-  console.log(e.target);
-});
 
 //закрытие бургера и сабменю при нажатии на оверлэй
 function clickOverlay() {
@@ -414,6 +416,33 @@ async function pagination() {
   scrollBtn();
 }
 
+// zoom
+function documentsZoom(item) {
+  item.addEventListener("click", (e) => {
+    zoomSlider.classList.add("active");
+    maskEl.classList.add("active");
+    bodyEl.classList.add("hidden");
+  });
+}
+
+function zoomClose() {
+  zoomCloseEl.addEventListener("click", (e) => {
+    zoomSlider.classList.remove("active");
+    maskEl.classList.remove("active");
+    bodyEl.classList.remove("hidden");
+  });
+}
+
+function zoomCloseOnMask() {
+  maskEl.addEventListener("click", (e) => {
+    if (zoomSlider.classList.contains("active")) {
+      zoomSlider.classList.remove("active");
+      maskEl.classList.remove("active");
+      bodyEl.classList.remove("hidden");
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   clickOverlay();
   addActiveMenu();
@@ -444,6 +473,13 @@ document.addEventListener("DOMContentLoaded", function () {
   if (paginationBox) pagination();
   executeSearch();
   if (inputSearchingPage) setRequestSearch();
+  if (documentZoom) {
+    documentZoom.forEach((item) => {
+      documentsZoom(item);
+    });
+    zoomClose();
+    zoomCloseOnMask();
+  }
 });
 
 if (document.querySelector(".swiper-introduction")) {
@@ -568,7 +604,7 @@ if (document.querySelector(".swiper__catalysts")) {
 }
 
 if (document.querySelector(".swiper__documents")) {
-  const swiperNews = new Swiper(".swiper__documents", {
+  const swiperDocuments = new Swiper(".swiper__documents", {
     direction: "horizontal",
     loop: true,
     slidesPerView: 1.5,
@@ -594,6 +630,22 @@ if (document.querySelector(".swiper__documents")) {
 
     pagination: {
       el: ".swiper__pagination_documents",
+    },
+  });
+}
+
+if (document.querySelector(".swiper__zoom")) {
+  const swiperZoom = new Swiper(".swiper__zoom", {
+    direction: "horizontal",
+    loop: true,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 20,
+    speed: 900,
+
+    navigation: {
+      nextEl: ".swiper__zoom_button_next",
+      prevEl: ".swiper__zoom_button_prev",
     },
   });
 }
