@@ -443,6 +443,10 @@ function zoomCloseOnMask() {
   });
 }
 
+document.addEventListener("mouseover", (e) => {
+  console.log(e.target);
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   clickOverlay();
   addActiveMenu();
@@ -477,8 +481,10 @@ document.addEventListener("DOMContentLoaded", function () {
     documentZoom.forEach((item) => {
       documentsZoom(item);
     });
-    zoomClose();
     zoomCloseOnMask();
+  }
+  if (zoomCloseEl) {
+    zoomClose();
   }
 });
 
