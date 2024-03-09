@@ -262,7 +262,7 @@
 .catalyst__card_content {
   position: absolute;
   z-index: 2;
-  bottom: 0;
+  bottom: 20%;
   left: 0;
   width: 100%;
   height: 44.8%;
@@ -280,6 +280,7 @@
 }
 
 .catalyst__card:hover .catalyst__card_content {
+  bottom: 0;
   height: fit-content;
   background-color: rgba(24, 25, 26, 0.92);
   -webkit-transition: -webkit-transform 0.5s linear,
@@ -443,6 +444,14 @@
     margin-top: 55px;
   }
 
+  .catalyst__card_content {
+    bottom: 100px;
+  }
+
+  .catalyst__card_text {
+    margin-top: 45px;
+  }
+
   .chemistry__cards_wrapper,
   .chemistry__content {
     width: 46.9%;
@@ -583,15 +592,16 @@
   }
 
   .catalyst__card_content {
+    bottom: 65px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     height: 100%;
     padding: 10px 10px 40px;
   }
 
   .catalyst__card_text {
-    margin-top: 0;
+    margin-top: 25px;
   }
 
   .chemistry__section {
@@ -623,6 +633,11 @@
 
   .chemistry__card:nth-child(n + 2) {
     margin-top: -70px;
+  }
+}
+@media (max-width: 660px) {
+  .catalyst__card_content {
+    bottom: 100px;
   }
 }
 
