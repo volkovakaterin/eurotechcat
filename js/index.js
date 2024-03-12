@@ -443,10 +443,6 @@ function zoomCloseOnMask() {
   });
 }
 
-document.addEventListener("mouseover", (e) => {
-  console.log(e.target);
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   clickOverlay();
   addActiveMenu();
@@ -656,26 +652,31 @@ if (document.querySelector(".swiper__zoom")) {
   });
 }
 
-ymaps.ready(init);
-let myMap, myPlacemark;
+if (document.getElementsByTagName("ymaps")) {
+  const ymaps = window.ymaps;
+  if (ymaps) {
+    ymaps.ready(init);
+    let myMap, myPlacemark;
 
-function init() {
-  myMap = new ymaps.Map("map", {
-    center: [55.754203, 37.556388],
-    zoom: 16,
-  });
+    function init() {
+      myMap = new ymaps.Map("map", {
+        center: [55.754203, 37.556388],
+        zoom: 16,
+      });
 
-  myPlacemark = new ymaps.Placemark(
-    [55.754203, 37.556388],
-    {
-      balloonContent: "",
-    },
-    {
-      iconLayout: "default#image",
-      iconImageHref: "./assets/images/location.png",
-      iconImageSize: [46, 58],
+      myPlacemark = new ymaps.Placemark(
+        [55.754203, 37.556388],
+        {
+          balloonContent: "",
+        },
+        {
+          iconLayout: "default#image",
+          iconImageHref: "./assets/images/location.png",
+          iconImageSize: [46, 58],
+        }
+      );
+      myMap.geoObjects.add(myPlacemark);
+      myMap.behaviors.disable("scrollZoom");
     }
-  );
-  myMap.geoObjects.add(myPlacemark);
-  myMap.behaviors.disable("scrollZoom");
+  }
 }

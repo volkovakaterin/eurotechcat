@@ -189,7 +189,7 @@
   }
 
   .header-logo {
-    width: 34.7%;
+    width: 100%;
   }
 
   .search__wrapper {
@@ -227,6 +227,7 @@
     height: 40px;
   }
 
+  .header-logo-link,
   .header-logo {
     width: 100%;
     height: auto;
@@ -302,7 +303,7 @@
     width: 53.4%;
   }
 
-  .header-logo {
+  .header-logo-link {
     height: 26px;
   }
 

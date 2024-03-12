@@ -136,6 +136,12 @@
   font-weight: 400;
   line-height: 19px;
   color: var(--color-grey-4);
+  transition: 0.3s;
+}
+
+.footer-inlaw span:hover a {
+  color: var(--color-grey);
+  transition: 0.3s;
 }
 
 .footer-inlaw-confidential {

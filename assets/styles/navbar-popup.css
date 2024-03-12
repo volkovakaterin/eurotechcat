@@ -289,10 +289,16 @@
     display: block;
   }
 
-  .menu__popup .header-logo {
+  .menu__popup .header-logo-link {
     display: flex;
     align-items: center;
     width: 41.3%;
+  }
+
+  .menu__popup .header-logo {
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
 
   .menu__popup .search__wrapper {
@@ -406,7 +412,7 @@
 }
 
 @media (max-width: 470px) {
-  .menu__popup .header-logo {
+  .menu__popup .header-logo-link {
     width: 48%;
   }
 
