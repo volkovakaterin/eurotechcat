@@ -519,11 +519,17 @@
   width: 55.9%;
 }
 
-.swiper-slide img {
+.introduction-slide {
   width: 100%;
   border-radius: 4px;
   aspect-ratio: 1.14;
+}
+
+.introduction-slide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  border-radius: 4px;
 }
 
 .breadcrumbs__container {
@@ -691,10 +697,15 @@
     margin-top: 100px;
   }
 
-  .swiper-slide img {
+  .introduction-slide {
     aspect-ratio: 1.82;
-    height: auto;
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    border-radius: 4px;
   }
 
   .introduction-container .swiper-pagination-introduction {
@@ -749,7 +760,7 @@
     margin-top: 30px;
   }
 
-  .swiper-slide img {
+  .introduction-slide {
     aspect-ratio: 1.09;
   }
 }
@@ -964,7 +975,7 @@
 .products-container {
   position: relative;
   margin: 100px 0;
-  padding-top: 23%;
+  padding-top: min(23%, 450px);
   padding-left: 120px;
   padding-right: 120px;
 }
@@ -975,12 +986,13 @@
   top: 0;
   left: 0;
   width: 100%;
+  aspect-ratio: 2.15;
+  height: auto;
 }
 
 .products-picture img {
   width: 100%;
-  aspect-ratio: 2.15;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -2088,9 +2100,15 @@
   height: 100%;
 }
 
-.swiper-slide .news-card img {
+.news-card_image {
   width: 100%;
   height: 250px;
+  border-radius: 4px 4px 0 0;
+}
+
+.news-card_image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 4px 4px 0 0;
 }
@@ -2370,7 +2388,7 @@
     margin-top: 44px;
   }
 
-  .swiper-slide .news-card img {
+  .news-card_image {
     height: 150px;
   }
 
@@ -3270,7 +3288,7 @@
 
 .news-card img {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
   border-radius: 4px 4px 0 0;
 }
@@ -4110,6 +4128,7 @@
 .document__card_image {
   position: relative;
   width: 100%;
+  height: auto;
   aspect-ratio: 0.7;
 }
 
@@ -4673,13 +4692,15 @@
 }
 
 .content__image {
+  width: 100%;
+  aspect-ratio: 1.95;
+  height: auto;
   margin-top: 20px;
 }
 
 .content__image img {
   width: 100%;
-  aspect-ratio: 1.95;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -4828,7 +4849,7 @@
     width: 48.5%;
   }
 
-  .content__image img {
+  .content__image {
     aspect-ratio: 1.41;
   }
 
@@ -4943,10 +4964,16 @@
   bottom: -70px;
 }
 
-.swiper__product img {
+.product__slide {
   width: 100%;
   aspect-ratio: 1.14;
   height: auto;
+  border-radius: 4px;
+}
+
+.product__slide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -5098,7 +5125,7 @@
     margin-top: 79px;
   }
 
-  .swiper__product img {
+  .product__slide {
     aspect-ratio: 0.93;
   }
 
@@ -5122,10 +5149,8 @@
     right: 0;
   }
 
-  .swiper__product img {
+  .product__slide {
     aspect-ratio: 1.62;
-    height: auto;
-    object-fit: cover;
   }
 
   .products__page .pagination__product__slider {
@@ -5219,7 +5244,7 @@
 }
 
 @media (max-width: 390px) {
-  .swiper__product img {
+  .product__slide {
     aspect-ratio: 1.09;
   }
 
@@ -5340,10 +5365,16 @@
   transition: 0.3s;
 }
 
-.one__product_card img {
+.one__product_image {
   width: 39.4%;
   aspect-ratio: 1.36;
   height: auto;
+  border-radius: 4px;
+}
+
+.one__product_image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -5430,10 +5461,13 @@
   padding: 0;
 }
 
-.one__product__container .one__product_card img {
+.one__product__container .one__product_image {
   width: 100%;
   aspect-ratio: 1.6;
-  height: auto;
+  border-radius: 4px 4px 0 0;
+}
+
+.one__product__container .one__product_image img {
   border-radius: 4px 4px 0 0;
 }
 
@@ -5631,10 +5665,15 @@
   margin-top: -70px;
 }
 
-.chemistry__card img {
+.chemistry__card_image {
   width: 54.4%;
   aspect-ratio: 1.6;
   height: auto;
+}
+
+.chemistry__card img {
+  width: 100%;
+  height: 100%;
   border-radius: 4px;
   object-fit: cover;
 }
@@ -5677,7 +5716,7 @@
     width: 47%;
   }
 
-  .one__product_card img {
+  .one__product_image {
     width: 45.7%;
     aspect-ratio: 1.18;
   }
@@ -5711,7 +5750,7 @@
     width: 46.9%;
   }
 
-  .chemistry__card img {
+  .chemistry__card_image {
     width: 53.4%;
     aspect-ratio: 1.78;
   }
@@ -5783,7 +5822,7 @@
     margin-top: 20px;
   }
 
-  .one__product_card img {
+  .one__product_image {
     width: 100%;
     aspect-ratio: 1.72;
   }
@@ -5816,7 +5855,7 @@
     margin-top: 44px;
   }
 
-  .one__product__container .one__product_card img {
+  .one__product__container .one__product_image {
     aspect-ratio: 1.4;
   }
 
@@ -5897,7 +5936,7 @@
 }
 
 @media (max-width: 550px) {
-  .chemistry__card img {
+  .chemistry__card_image {
     width: 100%;
     aspect-ratio: 1.59;
   }
@@ -5950,7 +5989,7 @@
     background: var(--color-white);
   }
 
-  .one__product_card img {
+  .one__product_image img {
     border-radius: 4px 4px 0 0;
   }
 

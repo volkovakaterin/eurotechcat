@@ -83,14 +83,27 @@ function controlProductsMenu() {
         bodyEl.classList.add("hidden");
       } else if (
         e.target == maskEl &&
-        navbarPopup.classList.contains("visible")
+        navbarPopup.classList.contains("visible") &&
+        maskEl.classList.contains("responsive")
       ) {
         navbarPopup.classList.remove("visible");
-        maskEl.classList.remove("active");
+        maskEl.classList.remove("active", "responsive");
         bodyEl.classList.remove("hidden");
       }
     }
   });
+
+  //индикатор аниамции маски
+  function maskCompletionAnimation() {
+    maskEl.addEventListener("transitionend", function () {
+      if (maskEl.classList.contains("active")) {
+        maskEl.classList.add("responsive");
+        console.log("responsive");
+      }
+    });
+  }
+
+  maskCompletionAnimation();
 
   subMenuBtn.addEventListener("click", (e) => {
     if (window.innerWidth > 1029 && e.target.tagName == "A") {
