@@ -41,6 +41,11 @@ function addActiveMenu() {
     const linkHref = item.getAttribute("href");
     if (currentLink.replace(/.*\//, "") === linkHref.replace(/.*\//, "")) {
       item.classList.add("active");
+    } else if (
+      (currentLink.replace(/.*\//, "") === "") &
+      (linkHref === "./index.html")
+    ) {
+      item.classList.add("active");
     }
   });
 }
