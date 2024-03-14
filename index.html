@@ -85,15 +85,14 @@
         </button>
       </div>
     </header>
-    <main class="home__page">
+    <main class="main home__page">
       <section class="introduction__section">
-        <div class="introduction__substrate">
-        </div>
-         <div class="introduction-container">
+         <div class="container introduction-container">
+          <div class="introduction__substrate"></div>
         <div class="introduction-content">
           <h1 class="introduction-content-title">Евротехкат</h1>
           <p class="introduction-content-text">
-            глобальный поставщик химической продукции
+            Глобальный поставщик химической продукции
           </p>
           <div
                 class="introduction__substrate introduction__substrate_adaptive"
@@ -105,13 +104,13 @@
           <div class="swiper swiper-introduction">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="./assets/images/blue_pipes.png" />
+                <img src="./assets/images/blue_pipes.webp" />
               </div>
               <div class="swiper-slide">
-                <img src="./assets/images/blue_pipes.png" />
+                <img src="./assets/images/blue_pipes.webp" />
               </div>
               <div class="swiper-slide">
-                <img src="./assets/images/blue_pipes.png" />
+                <img src="./assets/images/blue_pipes.webp" />
               </div>
             </div>
           </div>
@@ -120,7 +119,7 @@
       </div>
       </section>
       <section class="results__section">
-        <div class="results-container">
+        <div class="container results-container">
         <p class="results-text">
           Предлагаем широкий спектр катализаторов высочайшего качества, которые
           позволяют увеличить эффективность и срок эксплуатации установок наших
@@ -130,25 +129,31 @@
         <div class="results-numbers-container">
           <div class="results-numbers">
             <div class="results-number">
-              <div class="results-number-item">
+              <div class="results-number-wrapper">
+                <div class="results-number-item">
                 <div class="results-number-value">50</div>
                 <div class="results-number-measure">тонн</div>
               </div>
               <div class="results-number-product">катализаторов</div>
+              </div>
             </div>
             <div class="results-number">
-              <div class="results-number-item">
+              <div class="results-number-wrapper">
+                 <div class="results-number-item">
                 <div class="results-number-value">20</div>
                 <div class="results-number-measure">тонн</div>
               </div>
               <div class="results-number-product">промышленной химии</div>
+              </div>
             </div>
             <div class="results-number">
-              <div class="results-number-item">
+              <div class="results-number-wrapper">
+                <div class="results-number-item">
                 <div class="results-number-value">10</div>
                 <div class="results-number-measure">тонн</div>
               </div>
               <div class="results-number-product">масел</div>
+              </div>
             </div>
           </div>
         </div>
@@ -163,9 +168,9 @@
       </div>
       </section>
       <section class="products__section">
-        <div class="products-container">
+        <div class="container products-container">
         <div class="products-picture">
-          <img src="./assets/images/factory.png" />
+          <img src="./assets/images/factory.webp" />
         </div>
         <h2 class="products-title">Наши продукты</h2>
         <div class="products-cards_container">
@@ -246,7 +251,7 @@
       </div>
       </section>
       <section class="ideology-section">
-        <div class="ideology-container">
+        <div class="container ideology-container">
         <div class="ideology-description">
           <h2 class="ideology-description-title">ESG</h2>
           <p class="ideology-description-text">
@@ -320,9 +325,9 @@
       </section>
       <div class="block-wrapper">
         <section class="mission-section">
-<div class="mission-container">
+<div class="container mission-container">
           <div class="mission-picture">
-            <img src="./assets/images/factory_2.jpeg" />
+            <img src="./assets/images/factory_2.webp" />
           </div>
           <div class="mission-content-container">
             <div class="mission-content">
@@ -345,7 +350,7 @@
         </div>
         </section>
         <section class="successes-section">
-           <div class="successes-container">
+           <div class="container successes-container">
           <div class="successes-description-container">
             <h2 class="successes-description-title">НАШи успехи</h2>
             <ul class="successes-description-list">
@@ -391,9 +396,9 @@
         </section>
       </div>
       <section class="news-section">
-<div class="news-container">
+<div class="container news-container">
         <div class="news-picture">
-          <img src="./assets/images/image_news.png" />
+          <img src="./assets/images/image_news.webp" />
         </div>
         <h2 class="news-title">новости</h2>
         <div class="news-slider">
@@ -402,7 +407,47 @@
               <div class="swiper-slide">
                 <div class="news-card">
                   <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
+                    <img src="./assets/images/news_slide.webp" />
+                  <div class="news-card-content">
+                    <p class="news-card-text">
+                      Поставка своего регенерированного катализатора на завод  им.Ильича
+                    </p>
+                    <div class="news-card-date">25.01.2024</div>
+                    <div class="news-card-details">
+                      <button>Подробнее
+                        <span><svg width="21" height="36" viewBox="0 0 21 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.919099 0.585786C1.70015 -0.195262 2.96648 -0.195262 3.74753 0.585786L19.7475 16.5858C20.5286 17.3668 20.5286 18.6332 19.7475 19.4142L3.74753 35.4142C2.96648 36.1953 1.70015 36.1953 0.919099 35.4142C0.138051 34.6332 0.138051 33.3668 0.919099 32.5858L15.5049 18L0.919099 3.41421C0.138051 2.63317 0.138051 1.36683 0.919099 0.585786Z" fill="#18191A"/>
+                        </svg></span>
+                      </button>
+                    </div>
+                  </div>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="news-card">
+                  <a class="news-card_link" href="./one-news-page.html">
+                    <img src="./assets/images/news_slide.webp" />
+                  <div class="news-card-content">
+                    <p class="news-card-text">
+                      Поставка своего регенерированного катализатора на завод  им.Ильича
+                    </p>
+                    <div class="news-card-date">25.01.2024</div>
+                    <div class="news-card-details">
+                      <button>Подробнее
+                        <span><svg width="21" height="36" viewBox="0 0 21 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.919099 0.585786C1.70015 -0.195262 2.96648 -0.195262 3.74753 0.585786L19.7475 16.5858C20.5286 17.3668 20.5286 18.6332 19.7475 19.4142L3.74753 35.4142C2.96648 36.1953 1.70015 36.1953 0.919099 35.4142C0.138051 34.6332 0.138051 33.3668 0.919099 32.5858L15.5049 18L0.919099 3.41421C0.138051 2.63317 0.138051 1.36683 0.919099 0.585786Z" fill="#18191A"/>
+                        </svg></span>
+                      </button>
+                    </div>
+                  </div>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="news-card">
+                  <a class="news-card_link" href="./one-news-page.html">
+                    <img src="./assets/images/news_slide.webp" />
                   <div class="news-card-content">
                     <p class="news-card-text">
                       Поставка своего регенерированного катализатора
@@ -422,7 +467,7 @@
               <div class="swiper-slide">
                 <div class="news-card">
                   <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
+                    <img src="./assets/images/news_slide.webp" />
                   <div class="news-card-content">
                     <p class="news-card-text">
                       Поставка своего регенерированного катализатора
@@ -442,7 +487,7 @@
               <div class="swiper-slide">
                 <div class="news-card">
                   <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
+                    <img src="./assets/images/news_slide.webp" />
                   <div class="news-card-content">
                     <p class="news-card-text">
                       Поставка своего регенерированного катализатора
@@ -462,7 +507,7 @@
               <div class="swiper-slide">
                 <div class="news-card">
                   <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
+                    <img src="./assets/images/news_slide.webp" />
                   <div class="news-card-content">
                     <p class="news-card-text">
                       Поставка своего регенерированного катализатора
@@ -482,7 +527,7 @@
               <div class="swiper-slide">
                 <div class="news-card">
                   <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
+                    <img src="./assets/images/news_slide.webp" />
                   <div class="news-card-content">
                     <p class="news-card-text">
                       Поставка своего регенерированного катализатора
@@ -502,7 +547,7 @@
               <div class="swiper-slide">
                 <div class="news-card">
                   <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
+                    <img src="./assets/images/news_slide.webp" />
                   <div class="news-card-content">
                     <p class="news-card-text">
                       Поставка своего регенерированного катализатора
@@ -522,7 +567,7 @@
               <div class="swiper-slide">
                 <div class="news-card">
                   <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
+                    <img src="./assets/images/news_slide.webp" />
                   <div class="news-card-content">
                     <p class="news-card-text">
                       Поставка своего регенерированного катализатора
@@ -542,47 +587,7 @@
               <div class="swiper-slide">
                 <div class="news-card">
                   <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
-                  <div class="news-card-content">
-                    <p class="news-card-text">
-                      Поставка своего регенерированного катализатора
-                    </p>
-                    <div class="news-card-date">25.01.2024</div>
-                    <div class="news-card-details">
-                      <button>Подробнее
-                        <span><svg width="21" height="36" viewBox="0 0 21 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.919099 0.585786C1.70015 -0.195262 2.96648 -0.195262 3.74753 0.585786L19.7475 16.5858C20.5286 17.3668 20.5286 18.6332 19.7475 19.4142L3.74753 35.4142C2.96648 36.1953 1.70015 36.1953 0.919099 35.4142C0.138051 34.6332 0.138051 33.3668 0.919099 32.5858L15.5049 18L0.919099 3.41421C0.138051 2.63317 0.138051 1.36683 0.919099 0.585786Z" fill="#18191A"/>
-                        </svg></span>
-                      </button>
-                    </div>
-                  </div>
-                  </a>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="news-card">
-                  <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
-                  <div class="news-card-content">
-                    <p class="news-card-text">
-                      Поставка своего регенерированного катализатора
-                    </p>
-                    <div class="news-card-date">25.01.2024</div>
-                    <div class="news-card-details">
-                      <button>Подробнее
-                        <span><svg width="21" height="36" viewBox="0 0 21 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.919099 0.585786C1.70015 -0.195262 2.96648 -0.195262 3.74753 0.585786L19.7475 16.5858C20.5286 17.3668 20.5286 18.6332 19.7475 19.4142L3.74753 35.4142C2.96648 36.1953 1.70015 36.1953 0.919099 35.4142C0.138051 34.6332 0.138051 33.3668 0.919099 32.5858L15.5049 18L0.919099 3.41421C0.138051 2.63317 0.138051 1.36683 0.919099 0.585786Z" fill="#18191A"/>
-                        </svg></span>
-                      </button>
-                    </div>
-                  </div>
-                  </a>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="news-card">
-                  <a class="news-card_link" href="./one-news-page.html">
-                    <img src="./assets/images/news_slide.png" />
+                    <img src="./assets/images/news_slide.webp" />
                   <div class="news-card-content">
                     <p class="news-card-text">
                       Поставка своего регенерированного катализатора
@@ -626,7 +631,7 @@
       </div>
       </section>
       <section class="feedback-section">
-         <div class="feedback-container">
+         <div class="container feedback-container">
            <div class="feedback-block-container">
              <div class="feedback-content">
         <h2 class="feedback-content-title">Обратная связь</h2>
@@ -702,7 +707,7 @@
       </section>
     </main>
     <footer class="footer-section">
-      <div class="footer-container">
+      <div class="container footer-container">
         <div class="footer-content">
           <div class="footer-info">
               <span class="footer-logo">
@@ -1104,7 +1109,7 @@
                                 fill="#18191A"
                               /></svg></span
                         ></a>
-                        <img src="./assets/images/oil.png" />
+                        <img src="./assets/images/oil.webp" />
                       </li>
                       <li class="menu-products-item">
                         <a
@@ -1125,7 +1130,7 @@
                                 fill="#18191A"
                               /></svg></span
                         ></a>
-                        <img src="./assets/images/catalysts.png" />
+                        <img src="./assets/images/catalysts.webp" />
                       </li>
                       <li class="menu-products-item">
                         <a
@@ -1146,7 +1151,7 @@
                                 fill="#18191A"
                               /></svg></span
                         ></a>
-                        <img src="./assets/images/graft.png" />
+                        <img src="./assets/images/graft.webp" />
                       </li>
                     </ul>
                   </div>

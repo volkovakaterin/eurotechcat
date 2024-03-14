@@ -33,6 +33,7 @@ const searchLoupMenu = document.querySelectorAll(".search__loup_menu");
 const documentZoom = document.querySelectorAll(".document__card_zoom");
 const zoomSlider = document.querySelector(".zoom__slider");
 const zoomCloseEl = document.querySelector(".zoom__slider_close ");
+const cardContent = document.querySelectorAll(".catalyst__card_content");
 
 //выделение активного пункта меню
 function addActiveMenu() {
@@ -166,9 +167,10 @@ function executeSearch() {
 function setRequestSearch() {
   const decodePath = decodeURIComponent(fullPath);
   const index = decodePath.indexOf("q=");
-  if (index !== -1) {
-    const searchData = decodePath.substring(index + 2);
+  const searchData = decodePath.substring(index + 2);
+  if (searchData.trim() !== "") {
     inputSearchingPage.value = searchData;
+    inputSearchingPage.closest(".search__wrapper").classList.add("filled");
   } else {
     inputSearchingPage.value = "";
   }
@@ -443,6 +445,15 @@ function zoomCloseOnMask() {
   });
 }
 
+//скролл в начало карточки катализаторов
+function scrollStart(item) {
+  item.addEventListener("transitionend", function () {
+    if (!item.parentElement.matches(":hover")) {
+      item.scrollTop = 0;
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   clickOverlay();
   addActiveMenu();
@@ -482,6 +493,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (zoomCloseEl) {
     zoomClose();
   }
+  if (cardContent) {
+    cardContent.forEach((item) => {
+      scrollStart(item);
+    });
+  }
 });
 
 if (document.querySelector(".swiper-introduction")) {
@@ -491,8 +507,14 @@ if (document.querySelector(".swiper-introduction")) {
     spaceBetween: 20,
     speed: 900,
 
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+
     pagination: {
       el: ".swiper-pagination-introduction",
+      clickable: true,
     },
   });
 }
@@ -505,6 +527,11 @@ if (document.querySelector(".swiper-news")) {
     slidesPerGroup: 2,
     spaceBetween: 20,
     speed: 900,
+
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
 
     breakpoints: {
       391: {
@@ -529,6 +556,7 @@ if (document.querySelector(".swiper-news")) {
 
     pagination: {
       el: ".swiper-pagination-news",
+      clickable: true,
     },
   });
 }
@@ -539,6 +567,11 @@ if (document.querySelector(".swiper__oil_additive")) {
     loop: true,
     speed: 900,
     spaceBetween: 20,
+
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
 
     breakpoints: {
       1030: {
@@ -553,6 +586,7 @@ if (document.querySelector(".swiper__oil_additive")) {
 
     pagination: {
       el: ".pagination__oil_additive",
+      clickable: true,
     },
   });
 }
@@ -563,6 +597,11 @@ if (document.querySelector(".swiper__other_products")) {
     loop: true,
     speed: 900,
     spaceBetween: 20,
+
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
 
     breakpoints: {
       1030: {
@@ -577,6 +616,7 @@ if (document.querySelector(".swiper__other_products")) {
 
     pagination: {
       el: ".pagination__other_products",
+      clickable: true,
     },
   });
 }
@@ -587,6 +627,11 @@ if (document.querySelector(".swiper__catalysts")) {
     loop: true,
     speed: 900,
     spaceBetween: 20,
+
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
 
     breakpoints: {
       1030: {
@@ -601,6 +646,7 @@ if (document.querySelector(".swiper__catalysts")) {
 
     pagination: {
       el: ".pagination__catalysts",
+      clickable: true,
     },
   });
 }
@@ -613,6 +659,11 @@ if (document.querySelector(".swiper__documents")) {
     slidesPerGroup: 1,
     spaceBetween: 20,
     speed: 900,
+
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
 
     breakpoints: {
       391: {
@@ -632,6 +683,7 @@ if (document.querySelector(".swiper__documents")) {
 
     pagination: {
       el: ".swiper__pagination_documents",
+      clickable: true,
     },
   });
 }
@@ -671,7 +723,7 @@ if (document.getElementsByTagName("ymaps")) {
         },
         {
           iconLayout: "default#image",
-          iconImageHref: "./assets/images/location.png",
+          iconImageHref: "./assets/images/location.webp",
           iconImageSize: [46, 58],
         }
       );
